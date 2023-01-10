@@ -1,10 +1,11 @@
 ---
-category: Componentsdfg
-title: Breadcrumb
-subtitle: 面包屑
-group: 
-  title: 组件
-  order: 0
+category: Components
+title: Layout布局
+subtitle: 布局
+order: 1
+group:
+  title: Layout布局
+  order: 2
 demo:
   cols: 2
 ---

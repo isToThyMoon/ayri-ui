@@ -1,0 +1,21 @@
+@import '../../style/index.less';
+@import './mixin.less';
+
+@btn-prefix-cls: 'future-btn';
+
+// for compatible
+// @btn-ghost-color: @text-color;
+// @btn-ghost-bg: transparent;
+// @btn-ghost-border: @border-color-base;
+
+// Button styles
+// -----------------------------
+.@{btn-prefix-cls} {
+  // line-height: @btn-line-height;
+  .btn;
+  .btn-default;
+
+  > span {
+    display: inline-block;
+  }
+}

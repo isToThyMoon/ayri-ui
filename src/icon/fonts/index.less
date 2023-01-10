@@ -1,0 +1,1252 @@
+// @font-face {
+//   font-family: 'micon';
+//   src: url('./micon/micon.woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+@font-face {
+  font-family: micon;
+  src: url('./micon/micon.eot');
+  src: url('./micon/micon.woff') format('woff'),
+    url('./micon/micon.ttf') format('truetype'),
+    url('./micon/micon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ft-icon {
+  font-family: micon;
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  vertical-align: baseline;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.1px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ft-icon.icon-yes::before {
+  content: '\e000';
+}
+
+.ft-icon.icon-error::before {
+  content: '\e001';
+}
+
+.ft-icon.icon-info::before {
+  content: '\e002';
+}
+
+.ft-icon.icon-caution::before {
+  content: '\e003';
+}
+
+.ft-icon.icon-problem::before {
+  content: '\e004';
+}
+
+.ft-icon.icon-add-l::before {
+  content: '\e005';
+}
+
+.ft-icon.icon-down::before {
+  content: '\e006';
+}
+
+.ft-icon.icon-up::before {
+  content: '\e007';
+}
+
+.ft-icon.icon-right::before {
+  content: '\e008';
+}
+
+.ft-icon.icon-left::before {
+  content: '\e009';
+}
+
+.ft-icon.icon-add::before {
+  content: '\e00a';
+}
+
+.ft-icon.icon-deduct::before {
+  content: '\e00b';
+}
+
+.ft-icon.icon-delete::before {
+  content: '\e00c';
+}
+
+.ft-icon.icon-arrow-top::before {
+  content: '\e00d';
+}
+
+.ft-icon.icon-tm::before {
+  content: '\e00e';
+}
+
+.ft-icon.icon-basket::before {
+  content: '\e00f';
+}
+
+.ft-icon.icon-purchase::before {
+  content: '\e010';
+}
+
+.ft-icon.icon-personal::before {
+  content: '\e011';
+}
+
+.ft-icon.icon-group::before {
+  content: '\e012';
+}
+
+.ft-icon.icon-add-friend::before {
+  content: '\e013';
+}
+
+.ft-icon.icon-phonebook::before {
+  content: '\e014';
+}
+
+.ft-icon.icon-service-waiter::before {
+  content: '\e015';
+}
+
+.ft-icon.icon-headsets::before {
+  content: '\e016';
+}
+
+.ft-icon.icon-happy::before {
+  content: '\e017';
+}
+
+.ft-icon.icon-unhappy::before {
+  content: '\e018';
+}
+
+.ft-icon.icon-talk::before {
+  content: '\e019';
+}
+
+.ft-icon.icon-thumb-up::before {
+  content: '\e01a';
+}
+
+.ft-icon.icon-thumb-down::before {
+  content: '\e01b';
+}
+
+.ft-icon.icon-calendar::before {
+  content: '\e01c';
+}
+
+.ft-icon.icon-call1::before {
+  content: '\e01d';
+}
+
+.ft-icon.icon-call2::before {
+  content: '\e01e';
+}
+
+.ft-icon.icon-camera::before {
+  content: '\e01f';
+}
+
+.ft-icon.icon-cart::before {
+  content: '\e020';
+}
+
+.ft-icon.icon-clock::before {
+  content: '\e021';
+}
+
+.ft-icon.icon-history::before {
+  content: '\e022';
+}
+
+.ft-icon.icon-compass::before {
+  content: '\e023';
+}
+
+.ft-icon.icon-coordinate::before {
+  content: '\e024';
+}
+
+.ft-icon.icon-dollar::before {
+  content: '\e025';
+}
+
+.ft-icon.icon-download::before {
+  content: '\e026';
+}
+
+.ft-icon.icon-upload::before {
+  content: '\e027';
+}
+
+.ft-icon.icon-eye::before {
+  content: '\e028';
+}
+
+.ft-icon.icon-eye-close::before {
+  content: '\e029';
+}
+
+.ft-icon.icon-fill::before {
+  content: '\e02a';
+}
+
+.ft-icon.icon-survey::before {
+  content: '\e02b';
+}
+
+.ft-icon.icon-fill-text::before {
+  content: '\e02c';
+}
+
+.ft-icon.icon-folder::before {
+  content: '\e02d';
+}
+
+.ft-icon.icon-file::before {
+  content: '\e02e';
+}
+
+.ft-icon.icon-attachment::before {
+  content: '\e02f';
+}
+
+.ft-icon.icon-music::before {
+  content: '\e030';
+}
+
+.ft-icon.icon-video::before {
+  content: '\e031';
+}
+
+.ft-icon.icon-category::before {
+  content: '\e032';
+}
+
+.ft-icon.icon-list::before {
+  content: '\e033';
+}
+
+.ft-icon.icon-gallery::before {
+  content: '\e034';
+}
+
+.ft-icon.icon-heart::before {
+  content: '\e035';
+}
+
+.ft-icon.icon-heart-f::before {
+  content: '\e036';
+}
+
+.ft-icon.icon-star::before {
+  content: '\e037';
+}
+
+.ft-icon.icon-star-f::before {
+  content: '\e038';
+}
+
+.ft-icon.icon-volume-up::before {
+  content: '\e039';
+}
+
+.ft-icon.icon-volume-off::before {
+  content: '\e03a';
+}
+
+.ft-icon.icon-voice::before {
+  content: '\e03b';
+}
+
+.ft-icon.icon-voice-off::before {
+  content: '\e03c';
+}
+
+.ft-icon.icon-mail::before {
+  content: '\e03d';
+}
+
+.ft-icon.icon-mail-send::before {
+  content: '\e03e';
+}
+
+.ft-icon.icon-play::before {
+  content: '\e03f';
+}
+
+.ft-icon.icon-search::before {
+  content: '\e040';
+}
+
+.ft-icon.icon-filter::before {
+  content: '\e041';
+}
+
+.ft-icon.icon-qr::before {
+  content: '\e042';
+}
+
+.ft-icon.icon-quick-reply::before {
+  content: '\e043';
+}
+
+.ft-icon.icon-reply::before {
+  content: '\e044';
+}
+
+.ft-icon.icon-keyboard::before {
+  content: '\e045';
+}
+
+.ft-icon.icon-refresh::before {
+  content: '\e046';
+}
+
+.ft-icon.icon-home::before {
+  content: '\e047';
+}
+
+.ft-icon.icon-lock::before {
+  content: '\e048';
+}
+
+.ft-icon.icon-unlock::before {
+  content: '\e049';
+}
+
+.ft-icon.icon-share1::before {
+  content: '\e04a';
+}
+
+.ft-icon.icon-setting::before {
+  content: '\e04b';
+}
+
+.ft-icon.icon-print::before {
+  content: '\e04c';
+}
+
+.ft-icon.icon-recycle::before {
+  content: '\e04d';
+}
+
+.ft-icon.icon-picture::before {
+  content: '\e04e';
+}
+
+.ft-icon.icon-drag::before {
+  content: '\e04f';
+}
+
+.ft-icon.icon-product::before {
+  content: '\e050';
+}
+
+.ft-icon.icon-zip::before {
+  content: '\e051';
+}
+
+.ft-icon.icon-batch::before {
+  content: '\e052';
+}
+
+.ft-icon.icon-rotate-r::before {
+  content: '\e053';
+}
+
+.ft-icon.icon-rotate-l::before {
+  content: '\e054';
+}
+
+.ft-icon.icon-scaling::before {
+  content: '\e055';
+}
+
+.ft-icon.icon-apple::before {
+  content: '\e056';
+}
+
+.ft-icon.icon-android::before {
+  content: '\e057';
+}
+
+.ft-icon.icon-up-big::before {
+  content: '\e058';
+}
+
+.ft-icon.icon-down-big::before {
+  content: '\e059';
+}
+
+.ft-icon.icon-yes2::before {
+  content: '\e05a';
+}
+
+.ft-icon.icon-picture-gallery::before {
+  content: '\e05b';
+}
+
+.ft-icon.icon-enlarge::before {
+  content: '\e05c';
+}
+
+.ft-icon.icon-narrow::before {
+  content: '\e05d';
+}
+
+.ft-icon.icon-cart-add::before {
+  content: '\e05e';
+}
+
+.ft-icon.icon-cart-success::before {
+  content: '\e05f';
+}
+
+.ft-icon.icon-more::before {
+  content: '\e060';
+}
+
+.ft-icon.icon-video2::before {
+  content: '\e061';
+}
+
+.ft-icon.icon-verification-supplier::before {
+  content: '\e062';
+}
+
+.ft-icon.icon-chart::before {
+  content: '\e063';
+}
+
+.ft-icon.icon-fire::before {
+  content: '\e064';
+}
+
+.ft-icon.icon-pdf::before {
+  content: '\e065';
+}
+
+.ft-icon.icon-flag::before {
+  content: '\e066';
+}
+
+.ft-icon.icon-flag-f::before {
+  content: '\e067';
+}
+
+.ft-icon.icon-label::before {
+  content: '\e068';
+}
+
+.ft-icon.icon-phone::before {
+  content: '\e069';
+}
+
+.ft-icon.icon-reply-no::before {
+  content: '\e06a';
+}
+
+.ft-icon.icon-category2::before {
+  content: '\e06b';
+}
+
+.ft-icon.icon-sign-out::before {
+  content: '\e06c';
+}
+
+.ft-icon.icon-prohibit::before {
+  content: '\e06d';
+}
+
+.ft-icon.icon-prohibit-person::before {
+  content: '\e06e';
+}
+
+.ft-icon.icon-collection-person::before {
+  content: '\e06f';
+}
+
+.ft-icon.icon-distribution::before {
+  content: '\e070';
+}
+
+.ft-icon.icon-report::before {
+  content: '\e071';
+}
+
+.ft-icon.icon-product-add::before {
+  content: '\e072';
+}
+
+.ft-icon.icon-product-main::before {
+  content: '\e073';
+}
+
+.ft-icon.icon-sort::before {
+  content: '\e074';
+}
+
+.ft-icon.icon-sort2::before {
+  content: '\e075';
+}
+
+.ft-icon.icon-buyer-sourcing::before {
+  content: '\e076';
+}
+
+.ft-icon.icon-scan::before {
+  content: '\e077';
+}
+
+.ft-icon.icon-arrow-down::before {
+  content: '\e078';
+}
+
+.ft-icon.icon-arrow-left::before {
+  content: '\e079';
+}
+
+.ft-icon.icon-arrow-right::before {
+  content: '\e07a';
+}
+
+.ft-icon.icon-left-big::before {
+  content: '\e07b';
+}
+
+.ft-icon.icon-right-big::before {
+  content: '\e07c';
+}
+
+.ft-icon.icon-category-1000000000::before,
+.ft-icon.icon-ind-agriculture::before {
+  content: '\e180';
+}
+
+.ft-icon.icon-category-1100000000::before,
+.ft-icon.icon-ind-apparel::before {
+  content: '\e181';
+}
+
+.ft-icon.icon-category-1200000000::before,
+.ft-icon.icon-ind-artcraft::before {
+  content: '\e182';
+}
+
+.ft-icon.icon-category-2600000000::before,
+.ft-icon.icon-ind-bag::before {
+  content: '\e183';
+}
+
+.ft-icon.icon-category-3300000000::before,
+.ft-icon.icon-ind-computer::before {
+  content: '\e184';
+}
+
+.ft-icon.icon-category-1400000000::before,
+.ft-icon.icon-ind-consumer-electronics::before {
+  content: '\e185';
+}
+
+.ft-icon.icon-category-2700000000::before,
+.ft-icon.icon-ind-furniture::before {
+  content: '\e186';
+}
+
+.ft-icon.icon-category-1800000000::before,
+.ft-icon.icon-ind-light-industry::before {
+  content: '\e187';
+}
+
+.ft-icon.icon-category-2800000000::before,
+.ft-icon.icon-ind-office-supply::before {
+  content: '\e188';
+}
+
+.ft-icon.icon-category-3100000000::before,
+.ft-icon.icon-ind-sportting::before {
+  content: '\e189';
+}
+
+.ft-icon.icon-category-2200000000::before,
+.ft-icon.icon-ind-toy::before {
+  content: '\e18a';
+}
+
+.ft-icon.icon-category-2900000000::before,
+.ft-icon.icon-ind-auto::before {
+  content: '\e18b';
+}
+
+.ft-icon.icon-category-1600000000::before,
+.ft-icon.icon-ind-electrical::before {
+  content: '\e18c';
+}
+
+.ft-icon.icon-category-3400000000::before,
+.ft-icon.icon-ind-equipment::before {
+  content: '\e18d';
+}
+
+.ft-icon.icon-category-3500000000::before,
+.ft-icon.icon-ind-instrument::before {
+  content: '\e18e';
+}
+
+.ft-icon.icon-category-3000000000::before,
+.ft-icon.icon-ind-light::before {
+  content: '\e18f';
+}
+
+.ft-icon.icon-category-1900000000::before,
+.ft-icon.icon-ind-manufacture::before {
+  content: '\e190';
+}
+
+.ft-icon.icon-category-3600000000::before,
+.ft-icon.icon-ind-packaging::before {
+  content: '\e191';
+}
+
+.ft-icon.icon-category-2500000000::before,
+.ft-icon.icon-ind-security::before {
+  content: '\e192';
+}
+
+.ft-icon.icon-category-3200000000::before,
+.ft-icon.icon-ind-tool::before {
+  content: '\e193';
+}
+
+.ft-icon.icon-category-2300000000::before,
+.ft-icon.icon-ind-transportation::before {
+  content: '\e194';
+}
+
+.ft-icon.icon-category-1300000000::before,
+.ft-icon.icon-ind-chemical::before {
+  content: '\e195';
+}
+
+.ft-icon.icon-category-1500000000::before,
+.ft-icon.icon-ind-construction::before {
+  content: '\e196';
+}
+
+.ft-icon.icon-category-1700000000::before,
+.ft-icon.icon-ind-health::before {
+  content: '\e197';
+}
+
+.ft-icon.icon-category-2000000000::before,
+.ft-icon.icon-ind-metallurgy::before {
+  content: '\e198';
+}
+
+.ft-icon.icon-category-2100000000::before,
+.ft-icon.icon-ind-textile::before {
+  content: '\e199';
+}
+
+.ft-icon.icon-category-2400000000::before,
+.ft-icon.icon-ind-service::before {
+  content: '\e19a';
+}
+
+.ft-icon.icon-i-left::before {
+  content: '\e1e0';
+}
+
+.ft-icon.icon-i-up::before {
+  content: '\e1e1';
+}
+
+.ft-icon.icon-i-down::before {
+  content: '\e1e2';
+}
+
+.ft-icon.icon-i-star::before {
+  content: '\e1e3';
+}
+
+.ft-icon.icon-i-star-f::before {
+  content: '\e1e4';
+}
+
+.ft-icon.icon-i-personal::before {
+  content: '\e1e5';
+}
+
+.ft-icon.icon-i-add-friend::before {
+  content: '\e1e6';
+}
+
+.ft-icon.icon-i-phonebook::before {
+  content: '\e1e7';
+}
+
+.ft-icon.icon-i-search::before {
+  content: '\e1e8';
+}
+
+.ft-icon.icon-i-history::before {
+  content: '\e1e9';
+}
+
+.ft-icon.icon-i-home::before {
+  content: '\e1ea';
+}
+
+.ft-icon.icon-i-fill::before {
+  content: '\e1eb';
+}
+
+.ft-icon.icon-i-mail::before {
+  content: '\e1ec';
+}
+
+.ft-icon.icon-i-share::before {
+  content: '\e1ed';
+}
+
+.ft-icon.icon-i-compass::before {
+  content: '\e1ee';
+}
+
+.ft-icon.icon-i-filter::before {
+  content: '\e1ef';
+}
+
+.ft-icon.icon-i-category::before {
+  content: '\e1f0';
+}
+
+.ft-icon.icon-i-setting::before {
+  content: '\e1f1';
+}
+
+.ft-icon.icon-i-recycle::before {
+  content: '\e1f2';
+}
+
+.ft-icon.icon-i-scan::before {
+  content: '\e1f3';
+}
+
+.ft-icon.icon-i-more::before {
+  content: '\e1f4';
+}
+
+.ft-icon.icon-i-home-f::before {
+  content: '\e1f6';
+}
+
+.ft-icon.icon-i-compass-f::before {
+  content: '\e1f7';
+}
+
+.ft-icon.icon-i-purchase-f::before {
+  content: '\e1f8';
+}
+
+.ft-icon.icon-i-quick-reply::before {
+  content: '\e1f9';
+}
+
+.ft-icon.icon-i-reply::before {
+  content: '\e1fa';
+}
+
+.ft-icon.icon-i-attachment::before {
+  content: '\e1fb';
+}
+
+.ft-icon.icon-a-left::before {
+  content: '\e220';
+}
+
+.ft-icon.icon-a-right::before {
+  content: '\e221';
+}
+
+.ft-icon.icon-a-back::before {
+  content: '\e222';
+}
+
+.ft-icon.icon-a-star::before {
+  content: '\e223';
+}
+
+.ft-icon.icon-a-star-f::before {
+  content: '\e224';
+}
+
+.ft-icon.icon-a-personal::before {
+  content: '\e225';
+}
+
+.ft-icon.icon-a-add-friend::before {
+  content: '\e226';
+}
+
+.ft-icon.icon-a-phonebook::before {
+  content: '\e227';
+}
+
+.ft-icon.icon-a-search::before {
+  content: '\e228';
+}
+
+.ft-icon.icon-a-send::before {
+  content: '\e229';
+}
+
+.ft-icon.icon-a-quick-reply::before {
+  content: '\e22a';
+}
+
+.ft-icon.icon-a-attachment::before {
+  content: '\e22b';
+}
+
+.ft-icon.icon-a-reply::before {
+  content: '\e22c';
+}
+
+.ft-icon.icon-a-history::before {
+  content: '\e22d';
+}
+
+.ft-icon.icon-a-download::before {
+  content: '\e22e';
+}
+
+.ft-icon.icon-a-home::before {
+  content: '\e22f';
+}
+
+.ft-icon.icon-a-fill::before {
+  content: '\e230';
+}
+
+.ft-icon.icon-a-mail::before {
+  content: '\e231';
+}
+
+.ft-icon.icon-a-share::before {
+  content: '\e232';
+}
+
+.ft-icon.icon-a-compass::before {
+  content: '\e233';
+}
+
+.ft-icon.icon-a-filter::before {
+  content: '\e234';
+}
+
+.ft-icon.icon-a-category::before {
+  content: '\e235';
+}
+
+.ft-icon.icon-a-setting::before {
+  content: '\e236';
+}
+
+.ft-icon.icon-a-recycle::before {
+  content: '\e237';
+}
+
+.ft-icon.icon-a-scan::before {
+  content: '\e238';
+}
+
+.ft-icon.icon-a-more::before {
+  content: '\e239';
+}
+
+.ft-icon.icon-bell::before {
+  content: '\e07d';
+}
+
+.ft-icon.icon-pause::before {
+  content: '\e07e';
+}
+
+.ft-icon.icon-right-rotation::before {
+  content: '\e07f';
+}
+
+.ft-icon.icon-earth::before {
+  content: '\e080';
+}
+
+.ft-icon.icon-panorama::before {
+  content: '\e081';
+}
+
+.ft-icon.icon-ad::before {
+  content: '\e082';
+}
+
+.ft-icon.icon-shop::before {
+  content: '\e083';
+}
+
+.ft-icon.icon-customized::before {
+  content: '\e084';
+}
+
+.ft-icon.icon-mei::before {
+  content: '\e085';
+}
+
+.ft-icon.icon-medal::before {
+  content: '\e086';
+}
+
+.ft-icon.icon-card::before {
+  content: '\e087';
+}
+
+.ft-icon.icon-product-prohibit::before {
+  content: '\e088';
+}
+
+.ft-icon.icon-product-caution::before {
+  content: '\e089';
+}
+
+.ft-icon.icon-product-returns::before {
+  content: '\e08a';
+}
+
+.ft-icon.icon-certificate::before {
+  content: '\e08b';
+}
+
+.ft-icon.icon-truck::before {
+  content: '\e08c';
+}
+
+.ft-icon.icon-help::before {
+  content: '\e08d';
+}
+
+.ft-icon.icon-sale::before {
+  content: '\e08e';
+}
+
+.ft-icon.icon-bottom::before {
+  content: '\e08f';
+}
+
+.ft-icon.icon-top::before {
+  content: '\e090';
+}
+
+.ft-icon.icon-reservation::before {
+  content: '\e091';
+}
+
+.ft-icon.icon-bold::before {
+  content: '\e100';
+}
+
+.ft-icon.icon-italic::before {
+  content: '\e101';
+}
+
+.ft-icon.icon-underline::before {
+  content: '\e102';
+}
+
+.ft-icon.icon-align-left::before {
+  content: '\e103';
+}
+
+.ft-icon.icon-align-center::before {
+  content: '\e104';
+}
+
+.ft-icon.icon-text-style::before {
+  content: '\e105';
+}
+
+.ft-icon.icon-superscript::before {
+  content: '\e106';
+}
+
+.ft-icon.icon-subscript::before {
+  content: '\e107';
+}
+
+.ft-icon.icon-crop::before {
+  content: '\e108';
+}
+
+.ft-icon.icon-table::before {
+  content: '\e109';
+}
+
+.ft-icon.icon-table-edit::before {
+  content: '\e10a';
+}
+
+.ft-icon.icon-preview::before {
+  content: '\e10b';
+}
+
+.ft-icon.icon-foward::before {
+  content: '\e10c';
+}
+
+.ft-icon.icon-back::before {
+  content: '\e10d';
+}
+
+.ft-icon.icon-fullscreen::before {
+  content: '\e10e';
+}
+
+.ft-icon.icon-fullscreen-out::before {
+  content: '\e10f';
+}
+
+.ft-icon.icon-align-right::before {
+  content: '\e110';
+}
+
+.ft-icon.icon-symbol::before {
+  content: '\e111';
+}
+
+.ft-icon.icon-color::before {
+  content: '\e112';
+}
+
+.ft-icon.icon-link::before {
+  content: '\e113';
+}
+
+.ft-icon.icon-facebook::before {
+  content: '\e140';
+}
+
+.ft-icon.icon-google-plus::before {
+  content: '\e141';
+}
+
+.ft-icon.icon-twitter::before {
+  content: '\e142';
+}
+
+.ft-icon.icon-youtube::before {
+  content: '\e143';
+}
+
+.ft-icon.icon-linkedin::before {
+  content: '\e144';
+}
+
+.ft-icon.icon-pinterest::before {
+  content: '\e145';
+}
+
+.ft-icon.icon-weibo::before {
+  content: '\e146';
+}
+
+.ft-icon.icon-wechat::before {
+  content: '\e147';
+}
+
+.ft-icon.icon-tieba::before {
+  content: '\e148';
+}
+
+.ft-icon.icon-qzone::before {
+  content: '\e149';
+}
+
+.ft-icon.icon-tencent-weibo::before {
+  content: '\e14a';
+}
+
+.ft-icon.icon-share-mail::before {
+  content: '\e14b';
+}
+
+.ft-icon.icon-ind-agriculture::before {
+  content: '\e180';
+}
+
+.ft-icon.icon-ind-apparel::before {
+  content: '\e181';
+}
+
+.ft-icon.icon-ind-artcraft::before {
+  content: '\e182';
+}
+
+.ft-icon.icon-ind-bag::before {
+  content: '\e183';
+}
+
+.ft-icon.icon-ind-computer::before {
+  content: '\e184';
+}
+
+.ft-icon.icon-ind-consumer-electronics::before {
+  content: '\e185';
+}
+
+.ft-icon.icon-ind-furniture::before {
+  content: '\e186';
+}
+
+.ft-icon.icon-ind-light-industry::before {
+  content: '\e187';
+}
+
+.ft-icon.icon-ind-office-supply::before {
+  content: '\e188';
+}
+
+.ft-icon.icon-ind-sportting::before {
+  content: '\e189';
+}
+
+.ft-icon.icon-ind-toy::before {
+  content: '\e18a';
+}
+
+.ft-icon.icon-ind-auto::before {
+  content: '\e18b';
+}
+
+.ft-icon.icon-ind-electrical::before {
+  content: '\e18c';
+}
+
+.ft-icon.icon-ind-equipment::before {
+  content: '\e18d';
+}
+
+.ft-icon.icon-ind-instrument::before {
+  content: '\e18e';
+}
+
+.ft-icon.icon-ind-light::before {
+  content: '\e18f';
+}
+
+.ft-icon.icon-ind-manufacture::before {
+  content: '\e190';
+}
+
+.ft-icon.icon-ind-packaging::before {
+  content: '\e191';
+}
+
+.ft-icon.icon-ind-security::before {
+  content: '\e192';
+}
+
+.ft-icon.icon-ind-tool::before {
+  content: '\e193';
+}
+
+.ft-icon.icon-ind-transportation::before {
+  content: '\e194';
+}
+
+.ft-icon.icon-ind-chemical::before {
+  content: '\e195';
+}
+
+.ft-icon.icon-ind-construction::before {
+  content: '\e196';
+}
+
+.ft-icon.icon-ind-health::before {
+  content: '\e197';
+}
+
+.ft-icon.icon-ind-metallurgy::before {
+  content: '\e198';
+}
+
+.ft-icon.icon-ind-textile::before {
+  content: '\e199';
+}
+
+.ft-icon.icon-ind-service::before {
+  content: '\e19a';
+}
+
+.ft-icon.icon-i-personal-f::before {
+  content: '\e1f5';
+}
+
+.ft-icon.icon-active::before {
+  content: '\e092';
+}
+
+.ft-icon.icon-safeguard::before {
+  content: '\e094';
+}
+
+.ft-icon.icon-ind-beauty::before {
+  content: '\e19c';
+}
+
+.ft-icon.icon-ind-building-material::before {
+  content: '\e19f';
+}
+
+.ft-icon.icon-negotiate::before {
+  content: '\e093';
+}
+
+.ft-icon.icon-male::before {
+  content: '\e095';
+}
+
+.ft-icon.icon-female::before {
+  content: '\e096';
+}
+
+.ft-icon.icon-gift::before {
+  content: '\e097';
+}
+
+.ft-icon.icon-coupon::before {
+  content: '\e098';
+}
+
+.ft-icon.icon-mic-logo::before {
+  content: '\e099';
+}
+
+.ft-icon.icon-video-camera::before {
+  content: '\e09a';
+}
+
+.ft-icon.icon-save::before {
+  content: '\e09b';
+}
+
+.ft-icon.icon-basket-right::before {
+  content: '\e09c';
+}

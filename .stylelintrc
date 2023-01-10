@@ -1,3 +1,7 @@
 {
-  "extends": "@umijs/lint/dist/config/stylelint"
+  "extends": "@umijs/lint/dist/config/stylelint",
+  "rules": {
+    "selector-class-pattern": null,
+    "no-invalid-double-slash-comments": null
+  }
 }

@@ -1,8 +1,9 @@
 ---
 category: Components
-title: Breadcrumbdsf
-subtitle: 面包屑df
-group: 组件
+title: Grid栅格
+subtitle: 栅格
+order: 2
+group: Layout布局
 demo:
   cols: 2
 ---
