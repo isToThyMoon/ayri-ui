@@ -84,9 +84,9 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
     case 'small':
       sizeCls = 'sm';
       break;
-    case 'mini':
-      sizeCls = 'mini';
-      break;
+    // case 'mini':
+    //   sizeCls = 'mini';
+    //   break;
     default:
       break;
   }
@@ -101,7 +101,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
     [`future-btn-dangerous`]: !!danger,
   });
 
-  const iconNode = icon && !innerLoading ? icon : 'loadingicon';
+  const iconNode = icon && !innerLoading ? icon : '';
 
   const handleClick = (
     e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,

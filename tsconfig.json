@@ -11,6 +11,6 @@
       "ayri-ui": ["src"],
       "ayri-ui/*": ["src/*", "*"]
     }
-  },
-  "include": [".dumi/**/*", ".dumirc.ts"]
+  }
+  // "include": [".dumi/**/*", ".dumirc.ts"]
 }
