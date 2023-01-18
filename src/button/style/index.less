@@ -1,7 +1,7 @@
 @import '../../style/index.less';
 @import './mixin.less';
 
-@btn-prefix-cls: ~'future-btn';
+@btn-prefix-cls: ~'@{lib-prefix}-btn';
 
 // for compatible
 // @btn-ghost-color: @text-color;
@@ -11,11 +11,130 @@
 // Button styles
 // -----------------------------
 .@{btn-prefix-cls} {
-  // line-height: @btn-line-height;
+  line-height: @btn-line-height;
   .btn;
   .btn-default;
 
   > span {
     display: inline-block;
   }
+
+  // type
+  &-default-red {
+    .button-variant-other(@primary-red; @btn-default-bg; @primary-red;  default-red);
+  }
+
+  &-default-blue {
+    .button-variant-other(@primary-blue; @btn-default-bg; @primary-blue;default-blue);
+  }
+
+  &-secondary {
+    .button-variant-other(@neutral-1; @neutral-9; @neutral-5; secondary);
+  }
+
+  &-secondary-red {
+    .button-variant-other(@primary-red; #FFE5E5; @primary-red; secondary-red);
+  }
+
+  &-primary {
+    .btn-primary;
+
+    // .@{btn-prefix-cls}-group &:not(:first-child):not(:last-child) {
+    //   border-right-color: @btn-group-border;
+    //   border-left-color: @btn-group-border;
+
+    //   &:disabled {
+    //     border-color: @btn-default-border;
+    //   }
+    // }
+
+    // .@{btn-prefix-cls}-group &:first-child {
+    //   &:not(:last-child) {
+    //     border-right-color: @btn-group-border;
+
+    //     &[disabled] {
+    //       border-right-color: @btn-default-border;
+    //     }
+    //   }
+    // }
+
+    // .@{btn-prefix-cls}-group &:last-child:not(:first-child),
+    // .@{btn-prefix-cls}-group & + & {
+    //   border-left-color: @btn-group-border;
+
+    //   &[disabled] {
+    //     border-left-color: @btn-default-border;
+    //   }
+    // }
+  }
+
+  &-dashed {
+    .btn-dashed;
+  }
+
+  &-text {
+    .btn-text;
+  }
+
+  &-link {
+    .btn-link;
+  }
+
+  // &-link {
+  //   .btn-link;
+  // }
+
+  // shape;
+
+  // &-round {
+  //   .btn-round(@btn-prefix-cls);
+  //   &.@{btn-prefix-cls}-icon-only {
+  //     width: auto;
+  //   }
+  // }
+
+  &-circle {
+    .btn-circle(@btn-prefix-cls);
+  }
+
+  // state
+  // &-danger {
+  //   .btn-danger;
+  // }
+
+  // &-ghost {
+  //   .btn-ghost;
+  // }
+
+  // &&-loading {
+  //   position: relative;
+  //   &:not([disabled]) {
+  //     pointer-events: none;
+  //   }
+
+  //   &::before {
+  //     display: block;
+  //   }
+  // }
+
+  // & > &-loading-icon {
+  //   transition: all 0.3s @ease-in-out;
+
+  //   .@{iconfont-css-prefix} {
+  //     padding-right: @padding-xs;
+  //     animation: none;
+  //     // for smooth button padding transition
+  //     svg {
+  //       animation: loadingCircle 1s infinite linear;
+  //     }
+  //   }
+
+  //   &:only-child {
+  //     .@{iconfont-css-prefix} {
+  //       padding-right: 0;
+  //     }
+  //   }
+  // }
+
+  // disble 状态统一由.button-disabled()设置
 }
