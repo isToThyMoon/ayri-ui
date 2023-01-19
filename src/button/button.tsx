@@ -6,7 +6,17 @@ function isUnborderedButtonType(type: ButtonType | undefined) {
   return type === 'text' || type === 'link';
 }
 
-export type ButtonType = 'default' | 'primary' | 'dashed' | 'text' | 'link';
+// 'secondary'是设计单独开的有别于社区常规一个类型 相比default button一般有淡色背景
+export type ButtonType =
+  | 'default'
+  | 'primary'
+  | 'dashed'
+  | 'text'
+  | 'link'
+  | 'default-red'
+  | 'default-blue'
+  | 'secondary'
+  | 'secondary-red';
 export type ButtonSize = 'mini' | 'small' | 'middle' | 'large' | undefined;
 export type ButtonShape = 'circle' | 'round';
 
@@ -62,7 +72,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
     danger,
     ghost = false,
     loading = false,
-    disabled = false,
+    // disabled = false,
 
     ...resProps
   } = props;
@@ -94,14 +104,15 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
   const classes = classNames('future-btn', className, {
     [`future-btn-${type}`]: type,
     [`future-btn-${shape}`]: shape,
-    [`future-btn-${size}`]: sizeCls,
+    [`future-btn-${sizeCls}`]: sizeCls,
     [`future-btn-icon-only`]: !children && children !== 0 && iconType,
+    [`future-btn-dangerous`]: !!danger,
     [`future-btn-background-ghost`]: ghost && !isUnborderedButtonType(type),
     [`future-btn-loading`]: innerLoading,
-    [`future-btn-dangerous`]: !!danger,
   });
 
-  const iconNode = icon && !innerLoading ? icon : '';
+  // const iconNode = icon && !innerLoading ? icon : 'loadingicon';
+  const iconNode = innerLoading ? 'loadingicon' : icon ? icon : '';
 
   const handleClick = (
     e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,
@@ -117,6 +128,8 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
         >
       )(e);
     }
+    // 点击完成后主动让button失焦 防止一直触发focus状态（但也不要css中取消focus设置，键盘用户需要focus状态来模拟类似鼠标用户的悬停效果）
+    buttonRef.current.blur();
   };
 
   if (resProps.href !== undefined) {

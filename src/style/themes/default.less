@@ -1,5 +1,7 @@
 @import '../color/index.less';
 
+@lib-prefix: future;
+
 // colors
 
 // 主、次、常规色
@@ -39,7 +41,13 @@
 
 // 背景
 @backgroud-1-color: #f0f1f2;
-@backgroud-1-color: #f5f7fa;
+@backgroud-2-color: #f5f7fa;
+
+// --------------------------------------------------------------
+// border
+@border-width-base: 1px;
+
+// --------------------------------------------------------------
 
 // font
 @font-family: -apple-system, BlinkMacSystemFont, Roboto, Arial,
@@ -49,6 +57,12 @@
 
 @font-weight-normal: 400;
 @font-weight-bold: 500;
+
+@font-size-base: 14px;
+@line-height-base: 1.5715;
+
+@font-size-lg: @font-size-base + 2px;
+@font-size-sm: 12px;
 
 @font-size-operate-1: 36px;
 @font-height-operate-1: 42px;
@@ -74,6 +88,8 @@
 @font-size-body-2: 12px;
 @font-height-body-2: 18px;
 
+// --------------------------------------------------------------
+
 // Animation
 @ease-base-out: cubic-bezier(0.7, 0.3, 0.1, 1);
 @ease-base-in: cubic-bezier(0.9, 0, 0.3, 0.7);
@@ -90,7 +106,18 @@
 @ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
 @ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
 
+// --------------------------------------------------------------
+
+// 几何尺寸
+@height-base: 34px;
+@height-lg: 38px;
+@height-sm: 24px;
+
+// --------------------------------------------------------------
+
 // Buttons
+@btn-line-height: @line-height-base;
+
 @btn-font-weight: @font-weight-normal;
 @btn-border-radius-base: 3px;
 @btn-border-radius-sm: 3px;
@@ -101,24 +128,43 @@
 @btn-primary-shadow: unset;
 @btn-text-shadow: unset;
 
+// type
 @btn-primary-color: #fff;
 @btn-primary-bg: @primary-red;
 
 @btn-default-color: @neutral-2;
 @btn-default-bg: @white;
-@btn-default-border: @neutral-2;
+@btn-default-border: @divider-button-color;
 
+@btn-dashed-color: @neutral-3;
+@btn-dashed-bg: @white;
+@btn-dashed-border: @divider-button-color;
+@btn-dashed-hover-color: @neutral-1;
+@btn-dashed-hover-bg: @neutral-9;
+
+@btn-text-color: @neutral-1;
+@btn-text-hover-color: @primary-red;
+
+@btn-link-color: @primary-blue;
+@btn-link-hover-color: @primary-red;
+
+// state
 @btn-danger-color: @white;
 @btn-danger-bg: @danger;
 @btn-danger-border: @danger;
 
-@btn-disable-color: @neutral-4;
-@btn-disable-bg: @white;
-@btn-disable-border: @neutral-4;
+// for compatible
+@btn-ghost-color: @white;
+@btn-ghost-bg: transparent;
+@btn-ghost-border: @white;
 
-// @btn-default-ghost-color: @component-background;
-// @btn-default-ghost-bg: transparent;
-// @btn-default-ghost-border: @component-background;
+@btn-default-ghost-color: @white;
+@btn-default-ghost-bg: transparent;
+@btn-default-ghost-border: @white;
+
+@btn-disabled-color: @neutral-4;
+@btn-disabled-bg: @white;
+@btn-disabled-border: @neutral-4;
 
 // @btn-font-size-lg: @font-size-lg;
 // @btn-font-size-sm: @font-size-base;
@@ -126,15 +172,13 @@
 // @btn-padding-horizontal-lg: @btn-padding-horizontal-base;
 // @btn-padding-horizontal-sm: @padding-xs - 1px;
 
-// @btn-height-base: @height-base;
-// @btn-height-lg: @height-lg;
-// @btn-height-sm: @height-sm;
+@btn-height-base: @height-base;
+@btn-height-lg: @height-lg;
+@btn-height-sm: @height-sm;
 
-// @btn-line-height: @line-height-base;
-
-// @btn-circle-size: @btn-height-base;
-// @btn-circle-size-lg: @btn-height-lg;
-// @btn-circle-size-sm: @btn-height-sm;
+@btn-circle-size: @btn-height-base;
+@btn-circle-size-lg: @btn-height-lg;
+@btn-circle-size-sm: @btn-height-sm;
 
 // @btn-square-size: @btn-height-base;
 // @btn-square-size-lg: @btn-height-lg;
@@ -147,3 +191,5 @@
 
 // @btn-link-hover-bg: transparent;
 // @btn-text-hover-bg: rgba(0, 0, 0, 0.018);
+
+// --------------------------------------------------------------

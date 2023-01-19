@@ -16,6 +16,9 @@ export default defineConfig({
   themeConfig: {
     name: 'ayri-ui',
   },
+  lessLoader: {
+    math: 'always',
+  },
   extraBabelPlugins: [
     [
       'babel-plugin-import',

@@ -17,7 +17,7 @@ import 'ayri-ui/es/button/style/index.less';
 
 export default () => (
   <div>
-    <Button>提交</Button>
+    <Button type="primary">提交</Button>
   </div>
 );
 ```
