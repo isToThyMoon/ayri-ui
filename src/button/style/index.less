@@ -29,7 +29,8 @@
   }
 
   &-secondary {
-    .button-variant-other(@neutral-1; @neutral-9; @neutral-5; secondary);
+    .button-variant-other(@neutral-1; @neutral-9; @divider-button-color; secondary);
+    .button-disabled(@neutral-4; @backgroud-1-color; @divider-button-color);
   }
 
   &-secondary-red {
@@ -80,10 +81,6 @@
     .btn-link;
   }
 
-  // &-link {
-  //   .btn-link;
-  // }
-
   // shape;
 
   // &-round {
@@ -102,9 +99,81 @@
   //   .btn-danger;
   // }
 
-  // &-ghost {
-  //   .btn-ghost;
-  // }
+  &-ghost {
+    .btn-ghost;
+  }
+
+  &-background-ghost {
+    color: @btn-default-ghost-color;
+    background: @btn-default-ghost-bg !important;
+    border-color: @btn-default-ghost-border;
+
+    &:hover,
+    &:focus {
+      .button-color(@primary-red; transparent; @primary-red);
+    }
+  }
+
+  &-background-ghost&-default-blue {
+    .button-variant-ghost(@primary-blue);
+
+    &:hover,
+    &:focus {
+      .button-color(@primary-blue; transparent; @primary-blue);
+    }
+  }
+
+  &-background-ghost&-default-red {
+    .button-variant-ghost(@primary-red);
+
+    &:hover,
+    &:focus {
+      .button-color(@primary-red; transparent; @primary-red);
+    }
+  }
+
+  &-background-ghost&-secondary {
+    .button-variant-ghost(@white);
+
+    &:hover,
+    &:focus {
+      .button-color(@primary-red; transparent; @primary-red);
+    }
+  }
+
+  &-background-ghost&-secondary-red {
+    .button-variant-ghost(@primary-red);
+
+    &:hover,
+    &:focus {
+      .button-color(@primary-red; transparent; @primary-red);
+    }
+  }
+
+  &-background-ghost&-dashed {
+    .button-variant-ghost(@white);
+
+    &:hover,
+    &:focus {
+      .button-color(@primary-blue; transparent; @primary-blue);
+    }
+  }
+
+  &-background-ghost&-primary {
+    .button-variant-ghost(@primary-red);
+  }
+
+  &-background-ghost&-danger {
+    .button-variant-ghost(@primary-red);
+  }
+
+  &-background-ghost&-dangerous {
+    .button-variant-ghost(@primary-red);
+  }
+
+  &-background-ghost&-dangerous&-link {
+    .button-variant-ghost(@primary-red, transparent);
+  }
 
   // &&-loading {
   //   position: relative;
@@ -136,5 +205,5 @@
   //   }
   // }
 
-  // disble 状态统一由.button-disabled()设置
+  // disable 状态统一由.button-disabled()设置
 }
