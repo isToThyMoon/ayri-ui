@@ -12,8 +12,8 @@ demo:
 
 ```jsx
 import React from 'react';
-import { Button } from 'ayri-ui';
-import 'ayri-ui/es/button/style/index.less';
+import { Button } from 'future-ui';
+import 'future-ui/es/button/style/index.less';
 
 export default () => (
   <div>

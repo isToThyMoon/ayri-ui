@@ -22,7 +22,7 @@ export const responsiveMap: BreakpointMap = {
 };
 
 type SubscribeFunc = (screens: ScreenMap) => void;
-const subscribers = new Map<number, SubscribeFunc>();
+const subscribers = new Map<Number, SubscribeFunc>();
 let subUid = -1;
 let screens = {};
 
@@ -50,7 +50,6 @@ const responsiveObserve = {
     if (!subscribers.size) this.unregister();
   },
   unregister() {
-    // @ts-ignore
     Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
       const matchMediaQuery = responsiveMap[screen];
       const handler = this.matchHandlers[matchMediaQuery];
@@ -59,7 +58,6 @@ const responsiveObserve = {
     subscribers.clear();
   },
   register() {
-    // @ts-ignore
     Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
       const matchMediaQuery = responsiveMap[screen];
       const listener = ({ matches }: { matches: boolean }) => {
