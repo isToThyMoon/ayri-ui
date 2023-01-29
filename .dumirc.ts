@@ -42,8 +42,8 @@ export default defineConfig({
   // chainWebpack(config) {
   //   console.log(config)
   //   config.module
-  //     .rule('woff')
-  //     .test(/.(woff|eot|woff2|ttf|otf)$/)
+  //     .rule('png')
+  //     .test(/.(png)$/)
   //     .use('file-loader')
   //     .loader('file-loader');
   // }

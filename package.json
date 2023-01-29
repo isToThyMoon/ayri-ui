@@ -48,9 +48,14 @@
       "prettier --parser=typescript --write"
     ]
   },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "omit.js": "^2.0.2"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
+    "@types/lodash": "^4.14.191",
     "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
     "@umijs/lint": "^4.0.0",
