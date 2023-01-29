@@ -6,3 +6,4 @@ export { default as Grid } from './grid';
 export { default as Icon } from './icon';
 export { default as Row } from './row';
 export type { RowProps } from './row';
+export { default as Space } from './space';

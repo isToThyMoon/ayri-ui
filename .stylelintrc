@@ -2,6 +2,7 @@
   "extends": "@umijs/lint/dist/config/stylelint",
   "rules": {
     "selector-class-pattern": null,
-    "function-no-unknown": null
+    "function-no-unknown": null,
+    "rule-empty-line-before": null
   }
 }
