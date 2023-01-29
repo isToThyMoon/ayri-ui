@@ -32,5 +32,5 @@ const style = {
   color: 'white',
 };
 
-export default () => <Spin spinning={false} />;
+export default () => <Spin type="red" />;
 ```

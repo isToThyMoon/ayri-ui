@@ -6,7 +6,9 @@ import * as React from 'react';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
 
+import LoadingGray from './icon/loading-gray.png';
 import LoadingRed from './icon/loading-red.png';
+import LoadingWhite from './icon/loading-white.png';
 
 const SpinSizes = tuple('small', 'default', 'large');
 export type SpinSize = (typeof SpinSizes)[number];
@@ -14,6 +16,11 @@ export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export interface SpinProps {
   children: React.ReactNode;
+
+  // 三种转圈样式色彩
+  // 红色的是买家端常规的，灰色的是不适合同红色的地方使用，白色的是背景为深色状态下使用 （设计：黄骏宇 语）
+  type: 'red' | 'gray' | 'white' | undefined;
+
   prefixCls?: string;
   className?: string;
   spinning?: boolean;
@@ -31,12 +38,26 @@ export interface SpinState {
 }
 
 // Render indicator
-// let defaultIndicator: React.ReactNode = null;
-let defaultIndicator: React.ReactNode = <img src={LoadingRed} alt="" />;
+let defaultIndicator: React.ReactNode = null;
 
 function renderIndicator(prefixCls: string, props: SpinProps): React.ReactNode {
   const { indicator } = props;
   const dotClassName = `${prefixCls}-dot`;
+
+  switch (props.type) {
+    case 'red':
+      defaultIndicator = <img src={LoadingRed} alt="" />;
+      break;
+    case 'gray':
+      defaultIndicator = <img src={LoadingGray} alt="" />;
+      break;
+    case 'white':
+      defaultIndicator = <img src={LoadingWhite} alt="" />;
+      break;
+    default:
+      defaultIndicator = <img src={LoadingRed} alt="" />;
+      break;
+  }
 
   // should not be render default indicator when indicator value is null
   if (indicator === null) {
