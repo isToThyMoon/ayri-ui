@@ -50,7 +50,8 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "omit.js": "^2.0.2"
+    "rc-input": "^0.1.4",
+    "rc-textarea": "^0.4.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",

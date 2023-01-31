@@ -1,0 +1,43 @@
+// 此为input 不同的status样式 如error warning...
+@import './mixin';
+
+@input-prefix-cls: ~'@{lib-prefix}-input';
+
+@input-wrapper-cls: @input-prefix-cls, ~'@{input-prefix-cls}-affix-wrapper';
+
+each(@input-wrapper-cls, {
+  .@{value} {
+    &-status-error {
+      .status-color(@value, @neutral-1, @primary-red, @input-bg, @primary-red, none);
+      .status-color-common(@input-prefix-cls, @neutral-1, @primary-red, @input-bg, @primary-red, none);
+    }
+
+    // &-status-warning {
+    //   .status-color(@value, @warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
+    //   .status-color-common(@input-prefix-cls, @warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
+    // }
+  }
+});
+
+// .@{input-prefix-cls}-textarea {
+//   &-status-error,
+//   &-status-warning,
+//   &-status-success,
+//   &-status-validating {
+//     &.@{input-prefix-cls}-textarea-has-feedback {
+//       .@{input-prefix-cls} {
+//         padding-right: 24px;
+//       }
+//     }
+//   }
+// }
+
+// .@{input-prefix-cls}-group-wrapper {
+//   &-status-error {
+//     .group-status-color(@input-prefix-cls, @error-color, @error-color);
+//   }
+
+//   &-status-warning {
+//     .group-status-color(@input-prefix-cls, @warning-color, @warning-color);
+//   }
+// }

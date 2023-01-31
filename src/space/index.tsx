@@ -2,7 +2,9 @@ import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
 // import { ConfigContext } from '../config-provider';
-// import { SizeType } from '../config-provider/SizeContext';
+// import type { SizeType } from '../config-provider/SizeContext';
+import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
+import Compact from './Compact';
 import Item from './Item';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
@@ -11,12 +13,12 @@ export const SpaceContext = React.createContext({
   latestIndex: 0,
   horizontalSize: 0,
   verticalSize: 0,
+  supportFlexGap: false,
 });
 
 export type SpaceSize = SizeType | number;
 
-export interface SpaceProps {
-  children: React.ReactNode;
+export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
@@ -55,6 +57,8 @@ const Space: React.FC<SpaceProps> = (props) => {
     ...otherProps
   } = props;
 
+  const supportFlexGap = useFlexGapSupport();
+
   const [horizontalSize, verticalSize] = React.useMemo(
     () =>
       (
@@ -64,10 +68,6 @@ const Space: React.FC<SpaceProps> = (props) => {
   );
 
   const childNodes = toArray(children, { keepEmpty: true });
-
-  if (childNodes.length === 0) {
-    return null;
-  }
 
   const mergedAlign =
     align === undefined && direction === 'horizontal' ? 'center' : align;
@@ -95,11 +95,12 @@ const Space: React.FC<SpaceProps> = (props) => {
       latestIndex = i;
     }
 
-    /* eslint-disable react/no-array-index-key */
+    const key = (child && child.key) || `${itemClassName}-${i}`;
+
     return (
       <Item
         className={itemClassName}
-        key={`${itemClassName}-${i}`}
+        key={key}
         direction={direction}
         index={i}
         marginDirection={marginDirection}
@@ -109,25 +110,55 @@ const Space: React.FC<SpaceProps> = (props) => {
         {child}
       </Item>
     );
-    /* eslint-enable */
   });
+
+  const spaceContext = React.useMemo(
+    () => ({ horizontalSize, verticalSize, latestIndex, supportFlexGap }),
+    [horizontalSize, verticalSize, latestIndex, supportFlexGap],
+  );
+
+  // =========================== Render ===========================
+  if (childNodes.length === 0) {
+    return null;
+  }
+
+  const gapStyle: React.CSSProperties = {};
+
+  if (wrap) {
+    gapStyle.flexWrap = 'wrap';
+
+    // Patch for gap not support
+    if (!supportFlexGap) {
+      gapStyle.marginBottom = -verticalSize;
+    }
+  }
+
+  if (supportFlexGap) {
+    gapStyle.columnGap = horizontalSize;
+    gapStyle.rowGap = verticalSize;
+  }
 
   return (
     <div
       className={cn}
       style={{
-        ...(wrap && { flexWrap: 'wrap', marginBottom: -verticalSize }),
+        ...gapStyle,
         ...style,
       }}
       {...otherProps}
     >
-      <SpaceContext.Provider
-        value={{ horizontalSize, verticalSize, latestIndex }}
-      >
+      <SpaceContext.Provider value={spaceContext}>
         {nodes}
       </SpaceContext.Provider>
     </div>
   );
 };
 
-export default Space;
+interface CompoundedComponent extends React.FC<SpaceProps> {
+  Compact: typeof Compact;
+}
+
+const CompoundedSpace = Space as CompoundedComponent;
+CompoundedSpace.Compact = Compact;
+
+export default CompoundedSpace;
