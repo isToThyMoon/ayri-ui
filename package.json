@@ -51,6 +51,7 @@
   "dependencies": {
     "lodash": "^4.17.21",
     "rc-input": "^0.1.4",
+    "rc-input-number": "^7.3.9",
     "rc-textarea": "^0.4.5"
   },
   "devDependencies": {

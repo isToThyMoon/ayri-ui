@@ -7,7 +7,7 @@ import Search from './Search';
 import TextArea from './TextArea';
 
 // export { GroupProps } from './Group';
-// export { InputProps, InputRef } from './Input';
+export type { InputProps, InputRef } from './Input';
 // export { PasswordProps } from './Password';
 export type { SearchProps } from './Search';
 export type { TextAreaProps } from './TextArea';

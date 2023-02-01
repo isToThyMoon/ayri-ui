@@ -7,5 +7,6 @@ module.exports = {
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/ban-types': 'off',
+    eqeqeq: 'off',
   },
 };
