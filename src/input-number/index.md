@@ -2,7 +2,7 @@
 category: Components
 title: InputNumber数字输入框
 subtitle: 数字输入框
-order: 5
+order: 4
 group:
   title: Data Entry数据录入
   order: 6

@@ -1,4 +1,5 @@
 export { default as Button } from './button';
+export { Cascader } from './cascader';
 export { default as Col } from './col';
 export type { ColProps } from './col';
 export { default as Divider } from './divider';

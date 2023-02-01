@@ -1,0 +1,113 @@
+@import "~@future/core/src/style/base/variables";
+@import "~@future/core/src/style/base/mixins";
+@import "~@future/picker/dist/style";
+@import "~@future/input/dist/style";
+
+@include picker("ft-cascader");
+
+.ft-cascader {
+    $cascader: &;
+
+
+    &-dropdown {
+        overflow: unset;
+    }
+
+    &.open {
+        #{$cascader}-dropdown {
+            display: flex;
+        }
+    }
+
+    &-menus {
+        width: 100%;
+
+        flex-shrink: 0;
+
+        & + #{$cascader}-menus {
+            border-left: 1px solid $--color-border-button;;
+        }
+    }
+
+    &-search {
+        margin-top: 10px;
+        padding: 0 10px;
+
+        position: relative;
+
+        .ft-input {
+            width: 100%;
+            padding-right: #{5 + 16 + 5}px;
+            box-sizing: border-box;
+        }
+
+        .icon-search {
+            color: $--color-text-secondary;
+            font-size: 16px;
+
+            top: 50%;
+            right: 15px;
+            position: absolute;
+            transform: translate(0, -50%);
+        }
+    }
+    &-empty {
+        padding: 72px 0 113px;
+
+        color: $--color-text-primary;
+        font-size: $--font-size-base;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &-menu {
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        height: 186px;
+
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border: 3.5px solid rgba(0, 0, 0, 0);
+            background-clip: padding-box;
+            border-radius: 15px;
+            background-color: #d8d8d8;
+        }
+
+        $menu: &;
+
+        &-item {
+            padding: 5px 15px;
+
+            color: $--color-text-primary;
+            font-size: $--font-size-base;
+            line-height: 1.5;
+
+            &:hover,
+            &.is-selected {
+                color: $--color-blue;
+                background-color: $--color-background-regular;
+            }
+
+            cursor: pointer;
+
+            display: flex;
+
+            &-content {
+                flex-grow: 1;
+            }
+
+            &-expand-icon {
+                flex-shrink: 0;
+            }
+        }
+    }
+
+}
