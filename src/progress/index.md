@@ -1,10 +1,10 @@
 ---
 category: Components
-title: InputNumber数字输入框
-subtitle: 数字输入框
+title: Progress进度条
+subtitle: 进度条
 order: 4
 group:
-  title: Data Entry数据录入
+  title: Feedback反馈
   order: 6
 demo:
   cols: 2
@@ -28,8 +28,8 @@ clear 图标替换
 
 ```jsx
 import React from 'react';
-import { InputNumber, Space } from 'future-ui';
-import 'future-ui/es/input-number/style/index.less';
+import { Progress, Space } from 'future-ui';
+import 'future-ui/es/progress/style/index.less';
 
 const style = {
   background: 'blue',
@@ -39,9 +39,7 @@ const style = {
 export default () => {
   return (
     <div style={{ display: 'flex' }}>
-      <Space direction="vertical">
-        <InputNumber min={1} max={10} defaultValue={3} />
-      </Space>
+      <Progress percent={50} showInfo={false} />
     </div>
   );
 };

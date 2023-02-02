@@ -2,6 +2,9 @@
 
 @lib-prefix: future;
 
+// ICONFONT
+@iconfont-css-prefix: anticon;
+
 // colors
 
 // 主、次、常规色
@@ -61,7 +64,16 @@
 @backgroud-1-color: #f0f1f2;
 @backgroud-2-color: #f5f7fa;
 
+@background-color-light: hsv(
+  0,
+  0,
+  98%
+); // background of header and selected item
+@background-color-base: @backgroud-1-color; // Default grey background color
+
 @component-background: #fff;
+
+@item-hover-bg: @backgroud-2-color;
 
 // @processing-color: @blue-6;
 
@@ -71,7 +83,7 @@
 // @info-color-deprecated-border: color(~`colorPalette('@{info-color}', 3) `);
 
 // >>> Success
-// @success-color: @green-6;
+@success-color: @success;
 // @success-color-hover: color(~`colorPalette('@{success-color}', 5) `);
 // @success-color-active: color(~`colorPalette('@{success-color}', 7) `);
 // @success-color-outline: fade(@success-color, @outline-fade);
@@ -87,7 +99,7 @@
 // @warning-color-deprecated-border: color(~`colorPalette('@{warning-color}', 3) `);
 
 // >>> Error
-@error-color: @neutral-1;
+@error-color: @danger;
 @error-color-hover: @neutral-1;
 @error-color-active: @neutral-1;
 @error-color-outline: none;
@@ -140,7 +152,12 @@
 @height-sm: 24px;
 
 // --------------------------------------------------------------
+// Animation
+@animation-duration-slow: 0.3s; // Modal
+@animation-duration-base: 0.2s;
+@animation-duration-fast: 0.1s; // Tooltip
 
+// --------------------------------------------------------------
 // font
 
 @font-variant-base: tabular-nums;
@@ -205,6 +222,14 @@
 // vertical padding for all form controls
 @control-padding-horizontal: @padding-sm;
 @control-padding-horizontal-sm: @default-padding-xs;
+
+// vertical margins
+@margin-lg: 24px; // containers
+@margin-md: 16px; // small containers and buttons
+@margin-sm: 12px; // Form controls and items
+@margin-xs: 8px; // small items
+@margin-xss: 4px; // more small
+
 // --------------------------------------------------------------
 
 // Buttons
@@ -393,5 +418,24 @@
 
 @input-outline-offset: 0 0;
 @input-icon-hover-color: fade(@black, 85%);
+
+// --------------------------------------------------------------
+// Progress
+// --
+@processing-color: @primary-blue;
+
+@progress-default-color: @processing-color;
+@progress-remaining-color: @background-color-base;
+@progress-info-text-color: @progress-text-color;
+@progress-radius: 100px;
+@progress-steps-item-bg: #f3f3f3;
+@progress-text-font-size: 1em;
+@progress-text-color: @text-color; // This is for circle text color, should be renamed better
+@progress-circle-text-font-size: 1em;
+
+// --------------------------------------------------------------
+// Upload
+// ---
+@upload-actions-color: @text-color-secondary;
 
 // --------------------------------------------------------------

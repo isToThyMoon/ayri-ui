@@ -49,12 +49,17 @@
     ]
   },
   "dependencies": {
+    "@ant-design/colors": "^6.0.0",
+    "@ant-design/icons": "^4.7.0",
+    "@future/core": "^1.0.30",
     "@future/input": "^2.0.5",
     "@future/picker": "^1.1.1",
     "lodash": "^4.17.21",
     "rc-input": "^0.1.4",
     "rc-input-number": "^7.3.9",
+    "rc-progress": "^3.4.1",
     "rc-textarea": "^0.4.5",
+    "rc-upload": "^4.3.1",
     "throttle-debounce": "^5.0.0"
   },
   "devDependencies": {
