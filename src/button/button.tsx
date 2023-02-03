@@ -20,6 +20,8 @@ export type ButtonType =
 export type ButtonSize = 'mini' | 'small' | 'middle' | 'large' | undefined;
 export type ButtonShape = 'circle' | 'round';
 
+export type LegacyButtonType = ButtonType | 'danger';
+
 // type -> shape -> size -> danger ghost loading disabled进行组合使用
 //
 export interface BaseButtonProps {
@@ -129,6 +131,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
       )(e);
     }
     // 点击完成后主动让button失焦 防止一直触发focus状态（但也不要css中取消focus设置，键盘用户需要focus状态来模拟类似鼠标用户的悬停效果）
+    // console.log(buttonRef)
     buttonRef.current.blur();
   };
 

@@ -1,0 +1,38 @@
+.clearfix() {
+  // https://github.com/ant-design/ant-design/issues/21301#issuecomment-583955229
+  &::before {
+    display: table;
+    content: '';
+  }
+
+  &::after {
+    // https://github.com/ant-design/ant-design/issues/21864
+    display: table;
+    clear: both;
+    content: '';
+  }
+}
+
+.future-popconfirm-wrap {
+  padding: 10px;
+}
+
+.future-popconfirm-title {
+  display: flex;
+}
+
+.future-popconfirm-input-wrap {
+  margin-top: 10px;
+}
+
+.future-popconfirm-operate {
+  .clearfix();
+  margin-top: 20px;
+
+  button {
+    float: right;
+  }
+  button + button {
+    margin-right: 10px;
+  }
+}

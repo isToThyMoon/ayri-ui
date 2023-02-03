@@ -9,6 +9,7 @@ export { default as Input } from './input';
 export type { InputProps, InputRef } from './input';
 export { default as InputNumber } from './input-number';
 export type { InputNumberProps } from './input-number';
+export { PopConfirm } from './popconfirm';
 export { default as Progress } from './progress';
 export type { ProgressProps } from './progress';
 export { default as Row } from './row';
