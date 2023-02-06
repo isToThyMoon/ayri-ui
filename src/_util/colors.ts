@@ -8,7 +8,7 @@ export const PresetStatusColorTypes = tuple(
   'default',
   'warning',
 );
-// eslint-disable-next-line import/prefer-default-export
+// ////eslint-disable-next-line import/prefer-default-export
 export const PresetColorTypes = tuple(
   'pink',
   'red',

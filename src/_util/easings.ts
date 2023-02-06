@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/prefer-default-export
+// ////eslint-disable-next-line import/prefer-default-export
 export function easeInOutCubic(t: number, b: number, c: number, d: number) {
   const cc = c - b;
   t /= d / 2;

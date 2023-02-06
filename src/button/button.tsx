@@ -22,6 +22,9 @@ export type ButtonShape = 'circle' | 'round';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
+// export type ButtonHTMLTypes = | 'submit' | 'button' | 'reset';
+// export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
+
 // type -> shape -> size -> danger ghost loading disabled进行组合使用
 //
 export interface BaseButtonProps {
