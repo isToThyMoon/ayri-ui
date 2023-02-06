@@ -152,7 +152,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   // const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
 
   // const prefixCls = getPrefixCls('input', customizePrefixCls);
-  const prefixCls = 'future-input';
+  const prefixCls = 'ft-input';
 
   const inputRef = useRef<InputRef>(null);
 

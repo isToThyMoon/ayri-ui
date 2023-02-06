@@ -189,7 +189,7 @@ const SpinFC: SpinFCType = (props) => {
   // const { getPrefixCls } = React.useContext(ConfigContext);
 
   // const spinPrefixCls = getPrefixCls('spin', customizePrefixCls);
-  const spinPrefixCls = 'future-spin';
+  const spinPrefixCls = 'ft-spin';
 
   const spinClassProps: SpinClassProps = {
     ...props,

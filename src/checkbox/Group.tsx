@@ -118,7 +118,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<
   };
 
   // const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
-  const prefixCls = 'future-checkbox';
+  const prefixCls = 'ft-checkbox';
   const groupPrefixCls = `${prefixCls}-group`;
 
   const domProps = omit(restProps, ['value', 'disabled']);

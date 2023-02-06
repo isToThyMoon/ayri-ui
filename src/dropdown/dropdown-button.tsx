@@ -92,7 +92,7 @@ const DropdownButton: DropdownButtonInterface = (props) => {
   } = props;
 
   // const prefixCls = getPrefixCls('dropdown-button', customizePrefixCls);
-  const prefixCls = 'future-dropdown-button';
+  const prefixCls = 'ft-dropdown-button';
   const dropdownProps: DropdownProps = {
     menu,
     arrow,

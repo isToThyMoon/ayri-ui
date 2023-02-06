@@ -325,7 +325,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
   // const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   // const prefixCls = getPrefixCls('upload', customizePrefixCls);
-  const prefixCls = 'future-upload';
+  const prefixCls = 'ft-upload';
 
   //@ts-ignore
   const rcUploadProps = {

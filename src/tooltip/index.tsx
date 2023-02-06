@@ -301,8 +301,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   } = props;
   // const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
   // const rootPrefixCls = getPrefixCls();
-  const prefixCls = 'future-tooltip';
-  const rootPrefixCls = 'future';
+  const prefixCls = 'ft-tooltip';
+  const rootPrefixCls = 'ft';
 
   let tempOpen = open;
   // Hide tooltip when there is no title

@@ -59,7 +59,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   // const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
 
   // const rootPrefixCls = getPrefixCls();
-  const rootPrefixCls = 'future';
+  const rootPrefixCls = 'ft';
 
   const {
     prefixCls: customizePrefixCls,
@@ -132,7 +132,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   };
 
   // const prefixCls = getPrefixCls('menu', customizePrefixCls || override.prefixCls);
-  const prefixCls = 'future-menu';
+  const prefixCls = 'ft-menu';
   const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
   // ====================== Expand Icon ========================

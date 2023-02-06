@@ -64,7 +64,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   } = props;
 
   // const prefixCls = getPrefixCls('col', customizePrefixCls);
-  const prefixCls = 'future-col';
+  const prefixCls = 'ft-col';
 
   let sizeClassObj = {};
   sizes.forEach((size) => {

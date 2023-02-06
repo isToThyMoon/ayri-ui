@@ -42,7 +42,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
     ...restProps
   } = props;
   // const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
-  const radioPrefixCls = 'future-radio';
+  const radioPrefixCls = 'ft-radio';
   const prefixCls =
     (groupContext?.optionType || radioOptionTypeContext) === 'button'
       ? `${radioPrefixCls}-button`

@@ -51,7 +51,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
       onBlur,
     } = props;
     // const prefixCls = getPrefixCls('radio', customizePrefixCls);
-    const prefixCls = 'future-radio';
+    const prefixCls = 'ft-radio';
     const groupPrefixCls = `${prefixCls}-group`;
     let childrenToRender = children;
     // 如果存在 options, 优先使用

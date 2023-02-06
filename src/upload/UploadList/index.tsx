@@ -182,7 +182,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
 
   // ============================= Render =============================
   // const prefixCls = getPrefixCls('upload', customizePrefixCls);
-  const prefixCls = 'future-upload';
+  const prefixCls = 'ft-upload';
 
   const listClassNames = classNames({
     [`${prefixCls}-list`]: true,

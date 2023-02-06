@@ -250,7 +250,7 @@ const ListItem = React.forwardRef(
     );
     // const { getPrefixCls } = React.useContext(ConfigContext);
     // const rootPrefixCls = getPrefixCls();
-    const rootPrefixCls = 'future';
+    const rootPrefixCls = 'ft';
 
     const dom = (
       <div className={infoUploadingClass}>

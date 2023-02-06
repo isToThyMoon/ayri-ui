@@ -12,7 +12,7 @@ const RadioButton = (props: RadioButtonProps, ref: React.Ref<any>) => {
 
   const { prefixCls: customizePrefixCls, ...radioProps } = props;
   // const prefixCls = getPrefixCls('radio', customizePrefixCls);
-  const prefixCls = 'future-radio';
+  const prefixCls = 'ft-radio';
 
   return (
     <RadioOptionTypeContextProvider value="button">

@@ -25,7 +25,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     ...restProps
   } = props;
   // const prefixCls = getPrefixCls('divider', customizePrefixCls);
-  const prefixCls = 'future-divider';
+  const prefixCls = 'ft-divider';
   const orientationPrefix =
     orientation.length > 0 ? `-${orientation}` : orientation;
   const hasChildren = !!children;

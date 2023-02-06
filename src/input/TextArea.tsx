@@ -196,7 +196,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     };
 
     // const prefixCls = getPrefixCls('input', customizePrefixCls);
-    const prefixCls = 'future-input';
+    const prefixCls = 'ft-input';
 
     React.useImperativeHandle(ref, () => ({
       resizableTextArea: innerRef.current?.resizableTextArea,

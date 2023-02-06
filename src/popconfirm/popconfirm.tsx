@@ -30,12 +30,12 @@ export const PopConfirm: React.FC<popconfirmProps> = (props) => {
   };
 
   const content = (
-    <div className="future-popconfirm-wrap">
-      <div className="future-popconfirm-title">
+    <div className="ft-popconfirm-wrap">
+      <div className="ft-popconfirm-title">
         <span>{props.icon || 'icon'}</span>
         <span>{props?.title}</span>
       </div>
-      <div className="future-popconfirm-input-wrap">
+      <div className="ft-popconfirm-input-wrap">
         <Input
           value={inputText}
           onChange={(e) => {
@@ -43,7 +43,7 @@ export const PopConfirm: React.FC<popconfirmProps> = (props) => {
           }}
         ></Input>
       </div>
-      <div className="future-popconfirm-operate">
+      <div className="ft-popconfirm-operate">
         <Button type="primary" onClick={handleCancel}>
           {props.okText || '确定'}
         </Button>

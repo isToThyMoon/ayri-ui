@@ -55,7 +55,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>(
     } = props;
 
     // const prefixCls = getPrefixCls('input-number', customizePrefixCls);
-    const prefixCls = 'future-input-number';
+    const prefixCls = 'ft-input-number';
     // const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     const { compactSize, compactItemClassnames } = useCompactItemContext(
       prefixCls,

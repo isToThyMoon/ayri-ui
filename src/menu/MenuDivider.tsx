@@ -19,7 +19,7 @@ const MenuDivider: React.FC<MenuDividerProps> = ({
   // const { getPrefixCls } = React.useContext(ConfigContext);
 
   // const prefixCls = getPrefixCls('menu', customizePrefixCls);
-  const prefixCls = 'future-menu';
+  const prefixCls = 'ft-menu';
   const classString = classNames(
     {
       [`${prefixCls}-item-divider-dashed`]: !!dashed,

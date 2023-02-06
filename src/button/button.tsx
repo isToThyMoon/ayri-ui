@@ -106,14 +106,14 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
       break;
   }
 
-  const classes = classNames('future-btn', className, {
-    [`future-btn-${type}`]: type,
-    [`future-btn-${shape}`]: shape,
-    [`future-btn-${sizeCls}`]: sizeCls,
-    [`future-btn-icon-only`]: !children && children !== 0 && iconType,
-    [`future-btn-dangerous`]: !!danger,
-    [`future-btn-background-ghost`]: ghost && !isUnborderedButtonType(type),
-    [`future-btn-loading`]: innerLoading,
+  const classes = classNames('ft-btn', className, {
+    [`ft-btn-${type}`]: type,
+    [`ft-btn-${shape}`]: shape,
+    [`ft-btn-${sizeCls}`]: sizeCls,
+    [`ft-btn-icon-only`]: !children && children !== 0 && iconType,
+    [`ft-btn-dangerous`]: !!danger,
+    [`ft-btn-background-ghost`]: ghost && !isUnborderedButtonType(type),
+    [`ft-btn-loading`]: innerLoading,
   });
 
   // const iconNode = icon && !innerLoading ? icon : 'loadingicon';

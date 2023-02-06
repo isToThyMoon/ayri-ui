@@ -113,7 +113,7 @@ const Dropdown: DropdownInterface = (props) => {
 
   const getTransitionName = () => {
     // const rootPrefixCls = getPrefixCls();
-    const rootPrefixCls = 'future';
+    const rootPrefixCls = 'ft';
     const { placement = '', transitionName } = props;
     if (transitionName !== undefined) {
       return transitionName;
@@ -163,7 +163,7 @@ const Dropdown: DropdownInterface = (props) => {
   } = props;
 
   // const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
-  const prefixCls = 'future-dropdown';
+  const prefixCls = 'ft-dropdown';
   const child = React.Children.only(children) as React.ReactElement<any>;
 
   const dropdownTrigger = cloneElement(child, {

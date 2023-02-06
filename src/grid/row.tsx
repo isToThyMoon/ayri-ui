@@ -148,7 +148,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   };
 
   // const prefixCls = getPrefixCls('row', customizePrefixCls);
-  const prefixCls = 'future-row';
+  const prefixCls = 'ft-row';
   const gutters = getGutter();
   const classes = classNames(
     prefixCls,

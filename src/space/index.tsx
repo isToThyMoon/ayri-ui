@@ -72,7 +72,7 @@ const Space: React.FC<SpaceProps> = (props) => {
   const mergedAlign =
     align === undefined && direction === 'horizontal' ? 'center' : align;
   // const prefixCls = getPrefixCls('space', customizePrefixCls);
-  const prefixCls = 'future-space';
+  const prefixCls = 'ft-space';
   const cn = classNames(
     prefixCls,
     `${prefixCls}-${direction}`,

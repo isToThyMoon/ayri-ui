@@ -225,8 +225,8 @@ function InternalTable<RecordType extends object = any>(
   // const { getPrefixCls } = React.useContext(ConfigContext);
   // const prefixCls = getPrefixCls('table', customizePrefixCls);
   // const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
-  const prefixCls = 'future-table';
-  const dropdownPrefixCls = 'future-dropdown';
+  const prefixCls = 'ft-table';
+  const dropdownPrefixCls = 'ft-dropdown';
 
   const mergedExpandable: ExpandableConfig<RecordType> = {
     childrenColumnName: legacyChildrenColumnName,

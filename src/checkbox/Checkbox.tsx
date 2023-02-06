@@ -96,7 +96,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<
   }, [restProps.value]);
 
   // const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
-  const prefixCls = 'future-checkbox';
+  const prefixCls = 'ft-checkbox';
   const checkboxProps: CheckboxProps = { ...restProps };
   if (checkboxGroup && !skipGroup) {
     checkboxProps.onChange = (...args) => {

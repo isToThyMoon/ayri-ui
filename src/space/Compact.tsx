@@ -84,7 +84,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
   } = props;
 
   // const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
-  const prefixCls = 'future-space-compact';
+  const prefixCls = 'ft-space-compact';
   const clx = classNames(
     prefixCls,
     {

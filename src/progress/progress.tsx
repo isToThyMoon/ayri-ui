@@ -126,7 +126,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
   // const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   // const prefixCls = getPrefixCls('progress', customizePrefixCls);
-  const prefixCls = 'future-progress';
+  const prefixCls = 'ft-progress';
   const progressStatus = getProgressStatus();
   const progressInfo = renderProcessInfo(prefixCls, progressStatus);
 
