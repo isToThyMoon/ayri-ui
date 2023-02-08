@@ -73,18 +73,16 @@ export default () => {
   ];
 
   return (
-    <div style={{ display: 'flex' }}>
-      <Space direction="vertical">
-        <Cascader
-          className="demo-cascader"
-          options={regions}
-          // value={selectedRegions}
-          placeholder="请选择"
-          // onChange={(value) => {setSelectedRegions(value)}}
-          expandTrigger="hover"
-          changeOnSelect
-        />
-      </Space>
+    <div style={{ display: 'flex', width: '200px' }}>
+      <Cascader
+        className="demo-cascader"
+        options={regions}
+        // value={selectedRegions}
+        placeholder="请选择"
+        // onChange={(value) => {setSelectedRegions(value)}}
+        expandTrigger="hover"
+        changeOnSelect
+      />
     </div>
   );
 };

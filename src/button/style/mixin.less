@@ -351,19 +351,19 @@
 }
 
 // round button
-// .btn-round(@btnClassName: btn) {
-//   .button-size(@btn-circle-size; @btn-circle-size / 2; @font-size-base; @btn-circle-size);
-//   &.@{btnClassName}-lg {
-//     .button-size(
-//       @btn-circle-size-lg; @btn-circle-size-lg / 2; @btn-font-size-lg; @btn-circle-size-lg
-//     );
-//   }
-//   &.@{btnClassName}-sm {
-//     .button-size(
-//       @btn-circle-size-sm; @btn-circle-size-sm / 2; @font-size-base; @btn-circle-size-sm
-//     );
-//   }
-// }
+.btn-round(@btnClassName: btn) {
+  .button-size(@btn-circle-size; @btn-circle-size / 2; @font-size-base; @btn-circle-size);
+  &.@{btnClassName}-lg {
+    .button-size(
+      @btn-circle-size-lg; @btn-circle-size-lg / 2; @btn-font-size-lg; @btn-circle-size-lg
+    );
+  }
+  &.@{btnClassName}-sm {
+    .button-size(
+      @btn-circle-size-sm; @btn-circle-size-sm / 2; @font-size-base; @btn-circle-size-sm
+    );
+  }
+}
 
 // circle button: the content only contains icon
 .btn-circle(@btnClassName: btn) {
