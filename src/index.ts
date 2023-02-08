@@ -14,7 +14,7 @@ export { default as Divider } from './divider';
 //   TableProps,
 // } from './table';
 export { default as Dropdown } from './dropdown';
-export { default as RDropdown } from './dropdownrc';
+// export { default as RDropdown } from './dropdownrc';
 export { default as Grid } from './grid';
 export { default as Icon } from './icon';
 export { default as Input } from './input';
