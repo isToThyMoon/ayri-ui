@@ -13,7 +13,9 @@
     top: -0.06em;
     display: inline-block;
     height: 0.9em;
-    margin: 0 8px;
+    // margin: 0 8px;
+    // ft定制
+    margin: 0 10px;
     vertical-align: middle;
     border-top: 0;
     border-left: @border-width-base solid @divider-color;
@@ -24,15 +26,23 @@
     clear: both;
     width: 100%;
     min-width: 100%; // Fix https://github.com/ant-design/ant-design/issues/10914
-    margin: 24px 0;
+    // margin: 24px 0;
+    // ft定制
+    margin: 10px 0;
   }
 
   &-horizontal&-with-text {
     display: flex;
     margin: 16px 0;
-    color: @divider-color;
-    font-weight: 500;
-    font-size: @font-size-lg;
+    // color: @divider-color;
+    // ft定制
+    color: @neutral-4;
+    // font-weight: 500;
+    // ft定制
+    font-weight: 400;
+    // font-size: @font-size-lg;
+    // ft定制
+    font-size: @font-size-sm;
     white-space: nowrap;
     text-align: center;
     border-top: 0;
@@ -87,6 +97,15 @@
     border-style: dashed;
     border-width: @border-width-base 0 0;
   }
+  // ft定制
+  &-custom-dashed {
+    border: none;
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(to right, @divider-color 0%, @divider-color 50%, transparent 50%);
+    background-size: 4px 1px;
+    background-repeat: repeat-x;
+  }
 
   &-horizontal&-with-text&-dashed {
     border-top: 0;
@@ -99,6 +118,16 @@
 
   &-vertical&-dashed {
     border-width: 0 0 0 @border-width-base;
+  }
+  // ft定制
+  // 当垂直分割时 且要精准控制分割线密度
+  &-vertical&-custom-dashed {
+    border: none;
+    width: 1px;
+    height: 1em;
+    background-image: linear-gradient(to bottom, @divider-color 0%, @divider-color 50%, transparent 50%);
+    background-size: 1px 4px;
+    background-repeat: repeat-y;
   }
 
   &-plain&-with-text {

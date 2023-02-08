@@ -31,9 +31,12 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const spaceSize = {
-  small: 8,
-  middle: 16,
-  large: 24,
+  nano: 5,
+  small: 10,
+  middle: 15,
+  large: 20,
+  extreme: 30,
+  supreme: 40,
 };
 
 function getNumberSize(size: SpaceSize) {
