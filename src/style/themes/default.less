@@ -1,9 +1,15 @@
+@import "~@future/core/dist/style/fonts.css";
 @import '../color/index.less';
 
 @lib-prefix: ft;
 
 // ICONFONT
 @iconfont-css-prefix: anticon;
+
+* {
+  box-sizing: border-box;
+}
+
 
 // colors
 
@@ -61,9 +67,9 @@
 @divider-list-color: #dae0e6;
 @divider-button-color: #ced3d9;
 
-@divider-tint-color: #e6ecf2;
-@divider-medium-color: #dae0e6;
-@divider-deep-color: #ced3d9;
+@divider-tint-color: #e6ecf2; // 浅色
+@divider-medium-color: #dae0e6; // 中色
+@divider-deep-color: #ced3d9; // 深色
 
 // 背景
 @backgroud-1-color: #f0f1f2;
@@ -112,6 +118,7 @@
 @error-color-deprecated-border: none;
 
 // Disabled states
+// 禁用态的文字色
 @disabled-color: @neutral-4;
 @disabled-bg: @white;
 @disabled-active-bg: @white;
@@ -126,7 +133,7 @@
 
 @border-width-base: 1px; // width of the border for a component
 @border-style-base: solid; // style of a components border
-@border-radius-base: 2px;
+@border-radius-base: 3px;
 @border-radius-sm: 2px;
 
 @control-border-radius: 3px;
@@ -499,39 +506,14 @@
 @tooltip-border-radius: @border-radius-base;
 
 // --------------------------------------------------------------
-
 // Menu
-// ---
-@menu-inline-toplevel-item-height: 40px;
-@menu-item-height: 40px;
-@menu-item-group-height: @line-height-base;
-@menu-collapsed-width: 80px;
-@menu-bg: @component-background;
-@menu-popup-bg: @component-background;
-@menu-item-color: @text-color;
-@menu-inline-submenu-bg: @background-color-light;
-@menu-highlight-color: @primary-color;
-@menu-highlight-danger-color: @error-color;
-@menu-item-active-bg: @primary-color;
-@menu-item-active-danger-bg: @warning;
-@menu-item-active-border-width: 3px;
-@menu-item-group-title-color: @text-color-secondary;
-@menu-item-vertical-margin: 4px;
-@menu-item-font-size: @font-size-base;
-@menu-item-boundary-margin: 8px;
-@menu-item-padding-horizontal: 20px;
-@menu-item-padding: 0 @menu-item-padding-horizontal;
-@menu-horizontal-line-height: 46px;
-@menu-icon-margin-right: 10px;
-@menu-icon-size: @menu-item-font-size;
-@menu-icon-size-lg: @font-size-lg;
-@menu-item-group-title-font-size: @menu-item-font-size;
+
 
 // --------------------------------------------------------------
 
 // Checkbox
 @checkbox-size: 16px;
-@checkbox-color: @primary-color;
+@checkbox-color: @primary-blue;
 @checkbox-check-color: #fff;
 @checkbox-check-bg: @checkbox-check-color;
 @checkbox-border-width: @border-width-base;
@@ -544,8 +526,8 @@
 @radio-size: 16px;
 @radio-top: 0.2em;
 @radio-border-width: 1px;
-@radio-dot-size: @radio-size - 8px;
-@radio-dot-color: @primary-color;
+@radio-dot-size: @radio-size - 6px;
+@radio-dot-color: @primary-blue;
 @radio-dot-disabled-color: fade(@black, 20%);
 @radio-solid-checked-color: @component-background;
 
@@ -553,8 +535,8 @@
 @radio-button-bg: @btn-default-bg;
 @radio-button-checked-bg: @btn-default-bg;
 @radio-button-color: @btn-default-color;
-@radio-button-hover-color: @primary-color;
-@radio-button-active-color: @primary-color;
+@radio-button-hover-color: @primary-blue;
+@radio-button-active-color: @primary-blue;
 @radio-button-padding-horizontal: @padding-md - 1px;
 @radio-disabled-button-checked-bg: @disabled-active-bg;
 @radio-disabled-button-checked-color: @disabled-color;
@@ -598,15 +580,20 @@
 
 // --------------------------------------------------------------
 // Table
+// Table
 // --
+
+// 页头
+@table-title-bg:@backgroud-2-color;
+
 @table-bg: @component-background;
-@table-header-bg: @background-color-light;
-@table-header-color: @heading-color;
+@table-header-bg: @backgroud-2-color; //表头背景色
+@table-header-color: @neutral-1; // 表头文字色
 @table-header-sort-bg: @background-color-base;
 @table-body-sort-bg: #fafafa;
-@table-row-hover-bg: @background-color-light;
+@table-row-hover-bg: #f2f8ff;
 @table-selected-row-color: inherit;
-@table-selected-row-bg: @primary-red;
+@table-selected-row-bg: #f2f8ff;
 @table-body-selected-sort-bg: @table-selected-row-bg;
 @table-selected-row-hover-bg: darken(@table-selected-row-bg, 2%);
 @table-expanded-row-bg: #fbfbfb;
@@ -616,10 +603,11 @@
 @table-padding-horizontal-md: (@table-padding-horizontal / 2);
 @table-padding-vertical-sm: (@table-padding-vertical / 2);
 @table-padding-horizontal-sm: (@table-padding-horizontal / 2);
-@table-border-color: @border-color-split;
+
+@table-border-color: @divider-list-color;// 表格边框颜色
 @table-border-radius-base: @border-radius-base;
-@table-footer-bg: @background-color-light;
-@table-footer-color: @heading-color;
+@table-footer-bg: @backgroud-2-color; // 表格页脚背景色
+@table-footer-color: @neutral-1; // 表格页脚文字色
 @table-header-bg-sm: @table-header-bg;
 @table-font-size: @font-size-base;
 @table-font-size-md: @table-font-size;

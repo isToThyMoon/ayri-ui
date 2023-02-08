@@ -14,6 +14,7 @@
 @table-filter-dropdown-max-height: 264px;
 @table-expand-column-width: 48px;
 
+
 .@{table-prefix-cls}-wrapper {
   clear: both;
   max-width: 100%;
@@ -74,6 +75,10 @@
   // ============================ Title =============================
   &-title {
     padding: @table-padding-vertical @table-padding-horizontal;
+    // ft定制
+    color: @table-header-color;
+    background: @table-title-bg;
+    font-weight: 600;
   }
 
   // ============================ Footer ============================
@@ -81,6 +86,8 @@
     padding: @table-padding-vertical @table-padding-horizontal;
     color: @table-footer-color;
     background: @table-footer-bg;
+    // ft定制
+    font-weight: 600;
   }
 
   // ============================ Header ============================
@@ -90,6 +97,9 @@
         position: relative;
         color: @table-header-color;
         font-weight: 500;
+        // ft定制
+        font-weight: 600;
+
         text-align: left;
         background: @table-header-bg;
         border-bottom: @border-width-base @border-style-base @table-border-color;
@@ -106,6 +116,8 @@
           top: 50%;
           right: 0;
           width: 1px;
+          // ft定制
+          width: 0px;
           height: 1.6em;
           background-color: @table-header-cell-split-color;
           transform: translateY(-50%);
@@ -282,6 +294,8 @@
   &-column-sorter {
     margin-left: 4px;
     color: @table-header-icon-color;
+    // ft定制
+    color: @neutral-4; // sorter图标默认未激活颜色
     font-size: 0;
     transition: color 0.3s;
 
@@ -289,19 +303,29 @@
       display: inline-flex;
       flex-direction: column;
       align-items: center;
+
+      // ft定制
+      flex-direction: row;
+
     }
 
     &-up,
     &-down {
       font-size: 11px;
-
+      // ft定制
+      display: inline-flex;
       &.active {
         color: @primary-color;
+        // ft定制
+        color: @neutral-1; // sorter图标激活颜色
       }
     }
 
     &-up + &-down {
       margin-top: -0.3em;
+      // ft定制
+      margin-top: unset;
+      margin-left: 2px;
     }
   }
 

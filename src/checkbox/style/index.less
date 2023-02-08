@@ -1,6 +1,87 @@
 @import '../../style/themes/index';
 @import './mixin';
 
+
+
 .antCheckboxFn();
+
+
+// 多选框样式
+// .@{lib-prefix}-checkbox-checked{
+//   &::after{
+//       border-radius: 3px;
+//   }
+
+//   &:hover {
+//       &::after{
+//           border: 1px solid #3344E1;
+//           border-radius: 3px;
+//       }
+
+//       .@{lib-prefix}-checkbox-inner{
+//           // border: 1px solid #3344E1;
+//           background-color: #3344E1;
+//           border-radius: 3px;
+//       } 
+//   }
+// }
+
+// .@{lib-prefix}-checkbox-inner{
+//   border: 1px solid #888888;
+//   border-radius: 3px;
+
+//   -webkit-transition: none;
+//   transition: none;
+
+//   &:hover{
+//       border: 1px solid #3344E1;
+//       border-radius: 3px;
+//   }
+// }
+
+// 半选框内图标样式
+.@{lib-prefix}-checkbox.@{lib-prefix}-checkbox-indeterminate .@{lib-prefix}-checkbox-inner {
+  background: #415af0;
+  border-color: #415af0;
+}
+
+.@{lib-prefix}-checkbox-indeterminate .@{lib-prefix}-checkbox-inner::after {
+  width: 11px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+// rating选择框内的确认勾的样式
+.@{lib-prefix}-checkbox.@{lib-prefix}-checkbox-checked .@{lib-prefix}-checkbox-inner::before {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 2px;
+  position: absolute;
+  left: 1.5px;
+  top: 7px;
+  transform: rotate(45deg);
+  transition: all .1s ease-in;
+  background: #fff;
+  border-radius: 1px;
+}
+
+.@{lib-prefix}-checkbox.@{lib-prefix}-checkbox-checked .@{lib-prefix}-checkbox-inner::after {
+  content: "";
+  display: block;
+  width: 9px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  transform: rotate(-45deg);
+  transition: all .1s ease-in;
+  border-radius: 1px;
+  border: none;
+}
+
+
 
 @import './rtl';

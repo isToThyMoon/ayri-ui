@@ -33,8 +33,10 @@ import useSelection, {
 } from './hooks/useSelection';
 import type { SortState } from './hooks/useSorter';
 import useSorter, { getSortData } from './hooks/useSorter';
+import useTitleColumns from './hooks/useTitleColumns';
 import type {
   ColumnsType,
+  ColumnTitleProps,
   ColumnType,
   ExpandableConfig,
   ExpandType,
@@ -193,8 +195,8 @@ function InternalTable<RecordType extends object = any>(
   const screens = useBreakpoint(needResponsive);
 
   const mergedColumns = React.useMemo(() => {
-    //@ts-ignore
     const matched = new Set(
+      //@ts-ignore
       Object.keys(screens).filter((m: Breakpoint) => screens[m]),
     );
 
@@ -401,7 +403,23 @@ function InternalTable<RecordType extends object = any>(
   //   };
   // }, [sorterTitleProps, filters]);
 
-  // const [transformTitleColumns] = useTitleColumns(columnTitleProps);
+  const columnTitleProps = React.useMemo<ColumnTitleProps<RecordType>>(() => {
+    // const mergedFilters: Record<string, FilterValue> = {};
+    // Object.keys(filters).forEach(filterKey => {
+    //   if (filters[filterKey] !== null) {
+    //     mergedFilters[filterKey] = filters[filterKey]!;
+    //   }
+    // });
+    return {
+      ...sorterTitleProps,
+      // filters: mergedFilters,
+    };
+  }, [
+    sorterTitleProps,
+    //  filters
+  ]);
+
+  const [transformTitleColumns] = useTitleColumns(columnTitleProps);
 
   // ========================== Pagination ==========================
   const onPaginationChange = (current: number, pageSize: number) => {
@@ -529,6 +547,13 @@ function InternalTable<RecordType extends object = any>(
   //     ),
   //   [transformSorterColumns, transformFilterColumns, transformSelectionColumns],
   // );
+  const transformColumns = React.useCallback(
+    (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> =>
+      transformTitleColumns(
+        transformSelectionColumns(transformSorterColumns(innerColumns)),
+      ),
+    [transformSorterColumns, transformSelectionColumns],
+  );
 
   let topPaginationNode: React.ReactNode;
   let bottomPaginationNode: React.ReactNode;
@@ -620,6 +645,9 @@ function InternalTable<RecordType extends object = any>(
           internalRefs={internalRefs as any}
           //@ts-ignore
           // transformColumns={transformColumns as RcTableProps<RecordType>['transformColumns']}
+          transformColumns={
+            transformColumns as RcTableProps<RecordType>['transformColumns']
+          }
         />
         {bottomPaginationNode}
       </Spin>

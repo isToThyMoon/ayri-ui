@@ -9,6 +9,12 @@
     "no-invalid-position-at-import-rule": null,
     "number-max-precision": null,
     "color-function-notation": null,
-    "alpha-value-notation": null
+    "alpha-value-notation": null,
+    "color-hex-length": null,
+    "no-duplicate-selectors": null,
+    "comment-empty-line-before": null,
+    "property-no-vendor-prefix": null,
+    "length-zero-no-unit": null,
+    "declaration-block-no-duplicate-properties": null
   }
 }

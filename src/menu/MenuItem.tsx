@@ -7,7 +7,7 @@ import * as React from 'react';
 // import { SiderContext } from '../layout/Sider';
 import type { TooltipProps } from '../tooltip';
 // import Tooltip from '../tooltip';
-import { Tooltip } from 'antd';
+import Tooltip from '../tooltip';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import type { MenuContextProps } from './MenuContext';
 import MenuContext from './MenuContext';

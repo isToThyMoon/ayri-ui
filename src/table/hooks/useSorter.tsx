@@ -1,5 +1,5 @@
-import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
-import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
+// import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
+// import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
 import * as React from 'react';
@@ -23,6 +23,30 @@ import {
   renderColumnTitle,
   safeColumnTitle,
 } from '../util';
+
+// ft定制
+import { ReactComponent as VectorDown } from '../style/icon/VectorDown.svg';
+import { ReactComponent as VectorUp } from '../style/icon/VectorUp.svg';
+
+const CaretUpOutlined: React.FC<{ className: string; role: string }> = (
+  props,
+) => {
+  return (
+    <span className={props.className} role={props.role} aria-label="caret-up">
+      <VectorUp />
+    </span>
+  );
+};
+
+const CaretDownOutlined: React.FC<{ className: string; role: string }> = (
+  props,
+) => {
+  return (
+    <span className={props.className} role={props.role} aria-label="caret-down">
+      <VectorDown />
+    </span>
+  );
+};
 
 const ASCEND = 'ascend';
 const DESCEND = 'descend';

@@ -22,7 +22,7 @@ import 'future-ui/es/checkbox/style/index.less';
 export default () => {
   return (
     <div>
-      <Checkbox>Checkbox</Checkbox>
+      <Checkbox indeterminate={true}>Checkbox</Checkbox>
     </div>
   );
 };

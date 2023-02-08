@@ -1,4 +1,4 @@
-import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+// import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import classNames from 'classnames';
 import type { MenuProps as RcMenuProps, MenuRef } from 'rc-menu';
 import RcMenu, { ItemGroup } from 'rc-menu';
@@ -60,6 +60,15 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
 
   // const rootPrefixCls = getPrefixCls();
   const rootPrefixCls = 'ft';
+  // ft定制 水平horizontal mode下 menu超出容器时在尾部显示的拓展图标
+  const overflowedIndicator = (
+    <div className="ft-menu-rest-label">
+      <span>More</span>
+      <i className="ft-icon icon-down"></i>
+    </div>
+  );
+  // ft定制 默认展开icon
+  const defaultExpanIcon = <i className="ft-icon icon-down"></i>;
 
   const {
     prefixCls: customizePrefixCls,
@@ -143,6 +152,27 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
     mergedExpandIcon = cloneElement(expandIcon || override.expandIcon, {
       className: `${prefixCls}-submenu-expand-icon`,
     });
+    // ft定制 定制expanicon
+    if (defaultExpanIcon) {
+      let className;
+      switch (mode) {
+        case 'vertical':
+          className = `${prefixCls}-submenu-expand-icon ft-icon icon-right`;
+          break;
+        case 'inline':
+          className = `${prefixCls}-submenu-expand-icon ft-icon icon-down`;
+          break;
+        case 'horizontal':
+          className = `${prefixCls}-submenu-expand-icon ft-icon icon-down`;
+          break;
+        default:
+          className = `${prefixCls}-submenu-expand-icon ft-icon icon-down`;
+          break;
+      }
+      mergedExpandIcon = mergedExpandIcon = cloneElement(defaultExpanIcon, {
+        className: className,
+      });
+    }
   }
 
   // ======================== Context ==========================
@@ -171,8 +201,10 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
       <MenuContext.Provider value={contextValue}>
         <RcMenu
           // getPopupContainer={getPopupContainer}
-          overflowedIndicator={<EllipsisOutlined />}
-          overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
+          // overflowedIndicator={<EllipsisOutlined />}
+          overflowedIndicator={overflowedIndicator}
+          // overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
+          overflowedIndicatorPopupClassName={`${prefixCls}-overflow-pop-wrap`}
           mode={mergedMode}
           selectable={mergedSelectable}
           onClick={onItemClick}

@@ -5,6 +5,35 @@
 @menu-prefix-cls: ~'@{lib-prefix}-menu';
 @menu-animation-duration-normal: 0.15s;
 
+// Menu
+// ---
+@menu-inline-toplevel-item-height: 40px;
+@menu-item-height: 40px;
+@menu-item-group-height: @line-height-base;
+@menu-collapsed-width: 80px;// inline模式下 collapse状态只显示icon 菜单侧边浮出 这时的整体宽度
+@menu-bg: @component-background;
+@menu-popup-bg: @component-background;
+@menu-item-color: @black; // 默认状态下menu项目文字颜色 有icon时icon色值也会继承该值
+// @menu-inline-submenu-bg: @background-color-light;
+@menu-inline-submenu-bg: @white; // inline模式内嵌菜单 submenu背景色
+@menu-highlight-color: @primary-color; // 选中的menu项目文字颜色 有icon时icon色值也会继承该值
+@menu-highlight-danger-color: @error-color;
+@menu-item-active-bg: @primary-red; // menu item选中激活背景色
+@menu-item-active-danger-bg: @warning;
+@menu-item-active-border-width: 3px;
+@menu-item-group-title-color: @text-color-secondary;
+@menu-item-vertical-margin: 4px;
+@menu-item-font-size: @font-size-base;
+@menu-item-boundary-margin: 8px;
+@menu-item-padding-horizontal: 20px;
+@menu-item-padding: 0 @menu-item-padding-horizontal;
+@menu-horizontal-line-height: 46px;
+@menu-icon-margin-right: 10px;
+@menu-icon-size: @menu-item-font-size;
+@menu-icon-size-lg: @font-size-lg;
+@menu-item-group-title-font-size: @menu-item-font-size;
+
+
 .accessibility-focus() {
   // box-shadow: 0 0 0 2px @primary-2;
   box-shadow: none;
@@ -83,8 +112,16 @@
   &-item:active,
   &-submenu-title:active {
     background: @menu-item-active-bg;
+    // ft定制
+    color: @white;
   }
-
+  // ft定制
+  &-item:active&-item:hover,
+  &-submenu-title:active&-submenu-title:hover {
+    background: @menu-item-active-bg;
+    color: @white;
+  }
+  
   &-submenu &-sub {
     cursor: initial;
     transition: background @animation-duration-slow @ease-in-out,
@@ -156,12 +193,20 @@
 
   &:not(&-horizontal) &-item-selected {
     background-color: @menu-item-active-bg;
+    // ft定制
+    color: @white;
+    &:hover{
+      color: @white;
+    }
+
   }
 
   &-inline,
   &-vertical,
   &-vertical-left {
     border-right: @border-width-base @border-style-base @border-color-split;
+    // ft定制
+    border: @border-width-base @border-style-base @divider-block-color;
   }
 
   &-vertical-right {
@@ -382,6 +427,8 @@
     line-height: @menu-horizontal-line-height;
     border: 0;
     border-bottom: @border-width-base @border-style-base @border-color-split;
+    // ft定制
+    border-bottom: @border-width-base @border-style-base @divider-block-color;
     box-shadow: none;
 
     &:not(.@{menu-prefix-cls}-dark) {
@@ -395,8 +442,9 @@
         &-active,
         &-open,
         &-selected {
+          // horizontal mode下，选中 hover激活态menuitem
           color: @menu-highlight-color;
-
+          // font-weight: 600;
           &::after {
             border-bottom: 2px solid @menu-highlight-color;
           }
@@ -413,9 +461,11 @@
 
       &::after {
         position: absolute;
-        right: @menu-item-padding-horizontal;
+        // right: @menu-item-padding-horizontal;
+        right: 0;
         bottom: 0;
-        left: @menu-item-padding-horizontal;
+        // left: @menu-item-padding-horizontal;
+        left: 0;
         border-bottom: 2px solid transparent;
         transition: border-color @animation-duration-slow @ease-in-out;
         content: '';
@@ -464,7 +514,8 @@
         top: 0;
         right: 0;
         bottom: 0;
-        border-right: @menu-item-active-border-width solid @menu-highlight-color;
+        // border-right: @menu-item-active-border-width solid @menu-highlight-color;
+        border-right: none;
         transform: scaleY(0.0001);
         opacity: 0;
         transition: transform @menu-animation-duration-normal @ease-out,
@@ -521,7 +572,8 @@
 
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu-title {
-      width: ~'calc(100% + 1px)';
+      // width: ~'calc(100% + 1px)';
+      width: ~'calc(100%)';
     }
 
     .@{menu-prefix-cls}-item-group-list .@{menu-prefix-cls}-submenu-title,
@@ -610,6 +662,15 @@
       white-space: nowrap;
       text-overflow: ellipsis;
     }
+
+    //ft定制
+    // inline模式下 collapse时只显示主要icon icon后面的expanicon要隐藏
+    & > .@{menu-prefix-cls}-submenu.@{menu-prefix-cls}-submenu-vertical{
+      .@{menu-prefix-cls}-submenu-expand-icon{
+        display: none;
+      }
+    }
+
   }
 
   &-item-group-list {
@@ -703,3 +764,44 @@
 @import './light';
 // @import './dark';
 // @import './rtl';
+
+
+// 额外future定制
+.@{menu-prefix-cls} {
+
+  &-horizontal{
+    // 水平menu超出容器溢出，出现rest按钮 hover时出现浮层承载溢出的menu子项
+    .@{menu-prefix-cls}-overflow-item-rest {
+
+      .@{menu-prefix-cls}-rest-label{
+        display: flex;
+        i {
+          margin-left: 5px;
+          position: relative;
+          top: 1px;
+        }
+      }
+    }
+  }
+}
+
+// 水平menu超出容器溢出，出现rest按钮 hover时出现的浮层样式设置
+// .@{menu-prefix-cls}-overflow-pop-wrap {
+//   padding-top: 5px;
+//   padding-bottom: 5px;
+//   .ft-menu-vertical > .ft-menu-submenu > .ft-menu-submenu-title{
+//     .ft-menu-submenu-arrow{
+//       right: 5px;
+//     }
+//   }
+//   .ft-menu-vertical > .ft-menu-submenu > .ft-menu-submenu-title,
+//   .ft-menu-vertical.ft-menu-sub > .ft-menu-item {
+//     height: 21px;
+//     line-height: 21px;
+//     padding-left: 10px;
+//     padding-right: 18px;
+//     margin-top: 5px;
+//     margin-bottom:5px;
+//   }
+
+// }
