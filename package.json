@@ -36,8 +36,7 @@
       "prettier --write --no-error-on-unmatched-pattern"
     ],
     "*.{css,less}": [
-      "stylelint",
-      "prettier --write"
+      "stylelint"
     ],
     "*.{js,jsx}": [
       "eslint",
