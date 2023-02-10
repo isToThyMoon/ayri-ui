@@ -19,7 +19,7 @@ export { default as Grid } from './grid';
 export { default as Icon } from './icon';
 export { default as Input } from './input';
 export type { InputProps, InputRef } from './input';
-export { default as InputNumber } from './input-number';
+export { default as InputNumber, ManualInputNumber } from './input-number';
 export type { InputNumberProps } from './input-number';
 // export type { TooltipProps } from './tooltip';
 export { default as Menu } from './menu';

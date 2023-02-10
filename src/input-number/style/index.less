@@ -2,7 +2,7 @@
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
 @import './affix';
-// @import './status';
+@import './status';
 
 @input-number-prefix-cls: ~'@{lib-prefix}-input-number';
 @form-item-prefix-cls: ~'@{lib-prefix}-form-item';
@@ -15,6 +15,14 @@
   &-group {
     .reset-component();
     .input-group(~'@{input-number-prefix-cls}');
+
+    // ft定制
+    &-addon{
+      background-color: @white;
+      &:hover{
+        background-color: @backgroud-2-color;
+      }
+    }
 
     &-wrapper {
       display: inline-block;
@@ -36,7 +44,9 @@
     width: 100%;
     height: 50%;
     overflow: hidden;
-    color: @text-color-secondary;
+    // color: @text-color-secondary;
+    // ft定制
+    color: @neutral-3;
     font-weight: bold;
     line-height: 0;
     text-align: center;
@@ -50,7 +60,9 @@
 
     &:hover &-up-inner,
     &:hover &-down-inner {
-      color: @input-number-handler-hover-bg;
+      // color: @input-number-handler-hover-bg;
+      // ft定制
+      color: @neutral-2;
     }
   }
 
@@ -62,14 +74,16 @@
     right: 4px;
     width: 12px;
     height: 12px;
-    color: @text-color-secondary;
+    // color: @text-color-secondary;
+    // ft定制
+    color: @neutral-3;
     line-height: 12px;
     transition: all 0.1s linear;
     user-select: none;
   }
 
   &:hover {
-    .hover(@input-number-hover-border-color);
+    // .hover(@input-number-hover-border-color);
     & + .@{form-item-prefix-cls}-children-icon {
       opacity: 0;
       transition: opacity 0.24s linear 0.24s;
@@ -78,6 +92,7 @@
 
   &-focused {
     .active();
+    border-color: @primary-blue!important;
   }
 
   &-disabled {
@@ -147,6 +162,9 @@
     opacity: 0;
     transition: opacity 0.24s linear 0.1s;
 
+    // ft定制
+    z-index: 2;
+    
     // Fix input number inside Menu makes icon too large
     // We arise the selector priority by nest selector here
     // https://github.com/ant-design/ant-design/issues/14367
@@ -241,6 +259,71 @@
 
   // ===================== Compact Item Styles =====================
   .compact-item(@input-number-prefix-cls, null, ~'@{input-number-prefix-cls}-focused');
+
+
+  // ft定制
+  &-add-and-deduct{
+    .@{input-number-prefix-cls}-handler-wrap{
+      opacity: 0!important;
+      z-index: -1;
+    }
+  }
+
+  // &-group{
+
+  //   &:has(.@{input-number-prefix-cls}-group-addon){
+  //     .@{input-number-prefix-cls}{
+  //       // border-left: 0;
+  //       // border-right: 0;
+  //     }
+
+  //     .@{input-number-prefix-cls}-group-addon{
+  //       &:nth-child(1){
+  //         border: 1px solid #ced3d9;
+  //         left: 1px;
+  //         z-index: 1;
+  //       }
+
+  //       &:nth-child(3){
+  //         border: 1px solid #ced3d9;
+  //         right: 1px
+  //       }
+  //     }
+
+  //     &:hover{
+  //       .@{input-number-prefix-cls}{
+
+  //         &:nth-child(2){
+  //           border-top-color: #888;
+  //           border-bottom-color: #888;
+  //           // border-left-color: #ced3d9;
+  //           // border-right-color: #ced3d9;
+  //         }
+
+  //       }
+  //       .@{input-number-prefix-cls}-group-addon{
+  //         &:nth-child(1){
+  //           border-top-color: #888;
+  //           border-bottom-color: #888;
+  //           border-left-color: #888;
+  //           border-right-color: #ced3d9;
+  //         }
+
+  //         &:nth-child(3){
+  //           border-top-color: #888;
+  //           border-bottom-color: #888;
+  //           border-left-color: #ced3d9;
+  //           border-right-color: #888;
+  //         }
+  //       }
+  //     }
+
+
+  //   }
+
+
+  // }
+
 }
 
 // @import './rtl';

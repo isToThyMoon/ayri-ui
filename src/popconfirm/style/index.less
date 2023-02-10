@@ -1,3 +1,5 @@
+@import '../../style/index.less';
+
 .clearfix() {
   // https://github.com/ant-design/ant-design/issues/21301#issuecomment-583955229
   &::before {
@@ -19,6 +21,10 @@
 
 .ft-popconfirm-title {
   display: flex;
+  .ft-popconfirm-title-icon{
+    color: @warning;
+    margin-right: 10px;
+  }
 }
 
 .ft-popconfirm-input-wrap {

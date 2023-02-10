@@ -192,7 +192,33 @@
 
   &&-show-text &-text {
     display: block;
+
+    // ft定制
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 9px;
+    color: @text-body-color;
   }
+
+  // ft定制
+  &&-show-text&-show-text-vertical {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    .@{spin-prefix-cls}-text{
+      // ft定制
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-left: unset;
+      margin-top: 7px;
+      color: @text-body-color;
+    }
+  }
+
+
+
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {

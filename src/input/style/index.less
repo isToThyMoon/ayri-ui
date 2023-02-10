@@ -56,9 +56,13 @@
 
     position: relative;
 
+    // ft定制
+    // width: fit-content;
+    // height: fit-content;
+
     // 文本输入框计数文字样式
     &::after {
-      // float: right;
+      float: right;
       color: @text-color-secondary;
       white-space: nowrap;
       content: attr(data-count);
@@ -66,9 +70,12 @@
 
       line-height: 21px;
 
+      // ft定制
+      // display: block;
       position: absolute;
-      bottom: 4px;
-      right: 10px;
+      bottom: 5px;
+      right: 16px;
+      text-align: end;
     }
 
     &.@{input-prefix-cls}-textarea-in-form-item {

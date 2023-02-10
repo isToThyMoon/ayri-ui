@@ -33,6 +33,8 @@
     > .@{lib-prefix}-input-group-addon:last-child {
       left: -1px;
       //left-1px让图标左移 两边border重合
+      // ft定制；
+      // left:unset;
       padding: 0;
       border: 0;
 
@@ -40,6 +42,9 @@
         padding-top: 0;
         padding-bottom: 0;
         border-radius: 0 @border-radius-base @border-radius-base 0;
+        // ft定制
+        padding-left: 10px;
+        padding-right: 10px;
       }
 
       .@{search-prefix}-button:not(.@{lib-prefix}-btn-primary) {
@@ -61,6 +66,8 @@
     &:hover,
     &:focus {
       z-index: 1;
+      // ft 定制
+      z-index: 0;
     }
   }
 

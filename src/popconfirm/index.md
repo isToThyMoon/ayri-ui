@@ -10,11 +10,18 @@ demo:
   cols: 2
 ---
 
-popconfirm 依赖 popover popover 依赖 tootip
+# Popconfirm 气泡确认框
 
-## 代码演示
+> 点击元素，弹出气泡式的确认框。
 
-大小
+## 何时使用
+
+目标元素的操作需要用户进一步的确认时，在目标元素附近弹出浮层提示，询问用户。
+
+### 基本
+
+最简单用法
+api 同 popover
 
 ```jsx
 import React from 'react';
@@ -29,8 +36,12 @@ const style = {
 export default () => {
   return (
     <div style={{ display: 'flex' }}>
-      <PopConfirm></PopConfirm>
+      <PopConfirm title="Are you sure to delete this task?"></PopConfirm>
     </div>
   );
 };
 ```
+
+### 位置
+
+位置有十二个方向。如需箭头指向目标元素中心，可自定义 icon。

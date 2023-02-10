@@ -32,7 +32,9 @@ export const PopConfirm: React.FC<popconfirmProps> = (props) => {
   const content = (
     <div className="ft-popconfirm-wrap">
       <div className="ft-popconfirm-title">
-        <span>{props.icon || 'icon'}</span>
+        <span className="ft-popconfirm-title-icon">
+          {props.icon || <i className="ft-icon icon-caution"></i>}
+        </span>
         <span>{props?.title}</span>
       </div>
       <div className="ft-popconfirm-input-wrap">

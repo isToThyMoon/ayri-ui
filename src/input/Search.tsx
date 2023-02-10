@@ -92,7 +92,10 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   };
 
   // const searchIcon = typeof enterButton === 'boolean' ? <SearchOutlined /> : null;
-  const searchIcon = typeof enterButton === 'boolean' ? 'i' : null;
+  const searchIcon =
+    typeof enterButton === 'boolean' ? (
+      <i className="ft-icon icon-search"></i>
+    ) : null;
   const btnClassName = `${prefixCls}-button`;
 
   let button: React.ReactNode;
@@ -100,6 +103,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   const isAntdButton =
     //@ts-ignore
     enterButtonAsElement.type &&
+    //@ts-ignore
     (enterButtonAsElement.type as typeof Button).__ANT_BUTTON === true;
 
   if (isAntdButton || enterButtonAsElement.type === 'button') {

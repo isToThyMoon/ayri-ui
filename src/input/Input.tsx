@@ -4,7 +4,7 @@ import type { InputProps as RcInputProps, InputRef } from 'rc-input';
 import RcInput from 'rc-input';
 import type { BaseInputProps } from 'rc-input/lib/interface';
 import { composeRef } from 'rc-util/lib/ref';
-import React, { forwardRef, useEffect, useRef } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 // import { ConfigContext } from '../config-provider';
 // import DisabledContext from '../config-provider/DisabledContext';
 // import type { SizeType } from '../config-provider/SizeContext';
@@ -16,6 +16,9 @@ import { getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import { hasPrefixSuffix } from './utils';
+
+// ft定制
+import Tooltip from '../tooltip';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
@@ -130,6 +133,7 @@ export interface InputProps
   status?: InputStatus;
   bordered?: boolean;
   [key: `data-${string}`]: string | undefined;
+  overflowVisible?: boolean;
 }
 
 const Input = forwardRef<InputRef, InputProps>((props, ref) => {
@@ -147,6 +151,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     addonBefore,
     className,
     onChange,
+    overflowVisible,
     ...rest
   } = props;
   // const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
@@ -155,6 +160,10 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const prefixCls = 'ft-input';
 
   const inputRef = useRef<InputRef>(null);
+
+  // ft定制
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const [inputValue, setInputValue] = useState('');
 
   // ===================== Compact Item =====================
   // const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, undefined);
@@ -205,6 +214,18 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     removePasswordTimeout();
     onChange?.(e);
+
+    // ft定制
+    if (inputRef.current && props.overflowVisible) {
+      const ofWidth = inputRef.current.input?.offsetWidth;
+      const scWidth = inputRef.current.input?.scrollWidth;
+      if (ofWidth && scWidth && ofWidth < scWidth) {
+        setTooltipOpen(true);
+        setInputValue(inputRef.current.input?.value as string);
+      } else {
+        setTooltipOpen(false);
+      }
+    }
   };
 
   // const suffixNode = (hasFeedback || suffix) && (
@@ -221,75 +242,90 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     mergedAllowClear = allowClear;
   } else if (allowClear) {
     mergedAllowClear = {
-      clearIcon: 'i',
+      clearIcon: (
+        <i
+          className="ft-icon icon-error"
+          style={{ position: 'relative', top: '1px' }}
+        ></i>
+      ),
       // <CloseCircleFilled />
     };
   }
 
   return (
-    <RcInput
-      ref={composeRef(ref, inputRef)}
-      prefixCls={prefixCls}
-      // autoComplete={input?.autoComplete}
-      {...rest}
-      disabled={mergedDisabled || undefined}
-      onBlur={handleBlur}
-      onFocus={handleFocus}
-      suffix={suffixNode}
-      allowClear={mergedAllowClear}
-      // className={classNames(className, compactItemClassnames)}
-      className={classNames(className)}
-      onChange={handleChange}
-      addonAfter={
-        addonAfter &&
-        // <NoCompactStyle>
-        //   <NoFormStyle override status>
-        //     {addonAfter}
-        //   </NoFormStyle>
-        // </NoCompactStyle>
-        addonAfter
-      }
-      addonBefore={
-        addonBefore &&
-        // <NoCompactStyle>
-        //   <NoFormStyle override status>
-        // {addonBefore}
-        addonBefore
-        //   </NoFormStyle>
-        // </NoCompactStyle>
-      }
-      inputClassName={classNames(
-        {
-          [`${prefixCls}-sm`]: mergedSize === 'small',
-          [`${prefixCls}-lg`]: mergedSize === 'large',
-          // [`${prefixCls}-rtl`]: direction === 'rtl',
-          [`${prefixCls}-borderless`]: !bordered,
-        },
-        !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
-      )}
-      affixWrapperClassName={classNames(
-        {
-          [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
-          [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
-          // [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-          [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-        },
-        // getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
-        getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus),
-      )}
-      wrapperClassName={classNames({
-        // [`${prefixCls}-group-rtl`]: direction === 'rtl',
-      })}
-      groupClassName={classNames(
-        {
-          [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
-          [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
-          // [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
-        },
-        // getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
-        getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus),
-      )}
-    />
+    <Tooltip
+      placement="topLeft"
+      title={inputValue}
+      open={tooltipOpen}
+      color="#FFF"
+      overlayInnerStyle={{
+        color: '#222',
+      }}
+    >
+      <RcInput
+        ref={composeRef(ref, inputRef)}
+        prefixCls={prefixCls}
+        // autoComplete={input?.autoComplete}
+        {...rest}
+        disabled={mergedDisabled || undefined}
+        onBlur={handleBlur}
+        onFocus={handleFocus}
+        suffix={suffixNode}
+        allowClear={mergedAllowClear}
+        // className={classNames(className, compactItemClassnames)}
+        className={classNames(className)}
+        onChange={handleChange}
+        addonAfter={
+          addonAfter &&
+          // <NoCompactStyle>
+          //   <NoFormStyle override status>
+          //     {addonAfter}
+          //   </NoFormStyle>
+          // </NoCompactStyle>
+          addonAfter
+        }
+        addonBefore={
+          addonBefore &&
+          // <NoCompactStyle>
+          //   <NoFormStyle override status>
+          // {addonBefore}
+          addonBefore
+          //   </NoFormStyle>
+          // </NoCompactStyle>
+        }
+        inputClassName={classNames(
+          {
+            [`${prefixCls}-sm`]: mergedSize === 'small',
+            [`${prefixCls}-lg`]: mergedSize === 'large',
+            // [`${prefixCls}-rtl`]: direction === 'rtl',
+            [`${prefixCls}-borderless`]: !bordered,
+          },
+          !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
+        )}
+        affixWrapperClassName={classNames(
+          {
+            [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
+            [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
+            // [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+          },
+          // getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+          getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus),
+        )}
+        wrapperClassName={classNames({
+          // [`${prefixCls}-group-rtl`]: direction === 'rtl',
+        })}
+        groupClassName={classNames(
+          {
+            [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
+            [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
+            // [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
+          },
+          // getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
+          getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus),
+        )}
+      />
+    </Tooltip>
   );
 });
 

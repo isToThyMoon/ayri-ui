@@ -8,23 +8,25 @@
 each(@input-number-wrapper-cls, {
   .@{value} {
     &-status-error {
-      .status-color(@value, @error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline);
-      .status-color-common(@input-number-prefix-cls, @error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline)
+      // .status-color(@value, @error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline);
+      // .status-color-common(@input-number-prefix-cls, @error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline)
+      .status-color(@value, @neutral-1, @primary-red, @input-bg, @primary-red, none);
+      .status-color-common(@input-prefix-cls, @neutral-1, @primary-red, @input-bg, @primary-red, none);
     }
 
-    &-status-warning {
-      .status-color(@value, @warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
-      .status-color-common(@input-number-prefix-cls, @warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline)
-    }
+    // &-status-warning {
+      // .status-color(@value, @warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
+      // .status-color-common(@input-number-prefix-cls, @warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline)
+    // }
   }
 });
 
-.@{input-number-prefix-cls}-group-wrapper {
-  &-status-error {
-    .group-status-color(@input-number-prefix-cls, @error-color, @error-color);
-  }
+// .@{input-number-prefix-cls}-group-wrapper {
+//   &-status-error {
+//     .group-status-color(@input-number-prefix-cls, @error-color, @error-color);
+//   }
 
-  &-status-warning {
-    .group-status-color(@input-number-prefix-cls, @warning-color, @warning-color);
-  }
-}
+//   &-status-warning {
+//     .group-status-color(@input-number-prefix-cls, @warning-color, @warning-color);
+//   }
+// }

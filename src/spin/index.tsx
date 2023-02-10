@@ -28,6 +28,8 @@ export interface SpinProps {
   style?: React.CSSProperties;
   size?: SpinSize;
   tip?: React.ReactNode;
+  // ft定制
+  tipType?: 'vertical' | 'horizontal';
   delay?: number;
   wrapperClassName?: string;
   indicator?: SpinIndicator;
@@ -109,6 +111,8 @@ const Spin: React.FC<SpinClassProps> = (props) => {
     className,
     size = 'default',
     tip,
+    // ft定制
+    tipType,
     wrapperClassName,
     style,
     children,
@@ -139,6 +143,7 @@ const Spin: React.FC<SpinClassProps> = (props) => {
         [`${prefixCls}-lg`]: size === 'large',
         [`${prefixCls}-spinning`]: spinning,
         [`${prefixCls}-show-text`]: !!tip,
+        [`${prefixCls}-show-text-vertical`]: tipType === 'vertical',
         // [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,

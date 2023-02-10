@@ -10,21 +10,22 @@ demo:
   cols: 2
 ---
 
-显示当前页面在系统层级结构中的位置，并能向上返回。
+# Spin 加载中
+
+> 用于反馈一系列操作任务的处理结果
 
 ## 何时使用
 
-- 当系统拥有超过两级以上的层级结构时；
-- 当需要告知用户『你在哪里』时；
-- 当需要向上导航的功能时。
+页面局部处于等待或正在渲染过程时，合适的加载动效会有效缓解用户的焦虑。
 
-## 代码演示
+### 基本用法
 
-## API
+一个简单的 loading 状态。
+红色的是买家端常规的，灰色的是不适合同红色的地方使用，白色的是背景为深色状态下使用。
 
 ```jsx
 import React from 'react';
-import { Spin } from 'future-ui';
+import { Space, Spin } from 'future-ui';
 import 'future-ui/es/spin/style/index.less';
 
 const style = {
@@ -32,5 +33,67 @@ const style = {
   color: 'white',
 };
 
-export default () => <Spin type="red" />;
+export default () => (
+  <Space>
+    <Spin type="red" />
+    <Spin type="gray" />
+    <div
+      style={{
+        width: '32px',
+        height: '32px',
+        background: '#888',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <Spin type="white" />
+    </div>
+  </Space>
+);
+```
+
+### 放入一个容器中
+
+```tsx
+import { Spin } from 'future-ui';
+import React from 'react';
+
+const style = {
+  height: '80px',
+  margin: '20px 0',
+  marginBottom: '20px',
+  padding: '30px 50px',
+  textAlign: 'center',
+  background: 'rgba(0, 0, 0, 0.05)',
+  borderRadius: '4px',
+};
+
+const App: React.FC = () => (
+  <div style={style}>
+    <Spin type="red" />
+  </div>
+);
+
+export default App;
+```
+
+### 自定义描述文案
+
+```jsx
+import React from 'react';
+import { Space, Spin } from 'future-ui';
+import 'future-ui/es/spin/style/index.less';
+
+const style = {
+  background: 'blue',
+  color: 'white',
+};
+
+export default () => (
+  <Space size={30}>
+    <Spin tip="Loading" tipType="vertical" />
+    <Spin tip="Loading" />
+  </Space>
+);
 ```
