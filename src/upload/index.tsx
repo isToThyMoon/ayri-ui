@@ -21,6 +21,7 @@ interface UploadInterface<T = any> extends InternalUploadType {
 }
 
 const Upload = InternalUpload as UploadInterface;
+
 Upload.Dragger = Dragger;
 Upload.LIST_IGNORE = LIST_IGNORE;
 

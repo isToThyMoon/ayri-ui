@@ -1,13 +1,19 @@
 import type {
+  CSSMotionProps,
+  MotionEndEventHandler,
+  MotionEventHandler,
+} from 'rc-motion';
+import type { MotionEvent } from 'rc-motion/lib/interface';
+import type {
+  BeforeUploadFileType as RcBeforeUploadFileType,
   RcFile as OriRcFile,
   UploadProps as RcUploadProps,
   UploadRequestOption as RcCustomRequestOptions,
 } from 'rc-upload/lib/interface';
 import type * as React from 'react';
-import type { ProgressProps } from '../progress';
 
 export interface RcFile extends OriRcFile {
-  readonly lastModifiedDate: Date;
+  readonly lastModifiedDate?: Date;
 }
 
 export type UploadFileStatus =
@@ -63,38 +69,33 @@ export interface ShowUploadListInterface {
 }
 
 export interface UploadLocale {
-  uploading?: string;
   removeFile?: string;
-  downloadFile?: string;
-  uploadError?: string;
   previewFile?: string;
+}
+
+export interface UploadListProgressProps {
+  // percent?: number;
+  color?: string;
 }
 
 export type UploadType = 'drag' | 'select';
 export type UploadListType = 'text' | 'picture' | 'picture-card';
-export type UploadListProgressProps = Omit<ProgressProps, 'percent' | 'type'>;
 
 export type ItemRender<T = any> = (
   originNode: React.ReactElement,
   file: UploadFile,
   fileList: Array<UploadFile<T>>,
   actions: {
-    download: () => void;
-    preview: () => void;
-    remove: () => void;
+    preview: Function;
+    remove: Function;
   },
 ) => React.ReactNode;
 
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
-type TransformFileHandler = (
-  file: RcFile,
-) => string | Blob | File | PromiseLike<string | Blob | File>;
-type BeforeUploadValueType = void | boolean | string | Blob | File;
+export type BeforeUploadValueType = void | RcBeforeUploadFileType;
 
 export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture'> {
   type?: UploadType;
-  // ft定制
-  // customType?: 'base' | 'button';
   name?: string;
   defaultFileList?: Array<UploadFile<T>>;
   fileList?: Array<UploadFile<T>>;
@@ -131,21 +132,23 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture'> {
   customRequest?: (options: RcCustomRequestOptions) => void;
   withCredentials?: boolean;
   openFileDialogOnClick?: boolean;
-  locale?: UploadLocale;
   id?: string;
   previewFile?: PreviewFileHandler;
-  /** @deprecated Please use `beforeUpload` directly */
-  transformFile?: TransformFileHandler;
   iconRender?: (
     file: UploadFile<T>,
     listType?: UploadListType,
   ) => React.ReactNode;
   isImageUrl?: (file: UploadFile) => boolean;
-  progress?: UploadListProgressProps;
   itemRender?: ItemRender<T>;
   /** Config max count of `fileList`. Will replace current one when `maxCount` is 1 */
   maxCount?: number;
   children?: React.ReactNode;
+  prompt?: React.ReactNode;
+  direction?: 'ltr' | 'rtl';
+  maxSize?: number;
+  minSize?: number;
+  locale?: UploadLocale;
+  progress?: UploadListProgressProps;
 }
 
 export interface UploadState<T = any> {
@@ -160,14 +163,13 @@ export interface UploadListProps<T = any> {
   onRemove?: (file: UploadFile<T>) => void | boolean;
   items?: Array<UploadFile<T>>;
   progress?: UploadListProgressProps;
-  prefixCls?: string;
+  prefixCls: string;
   showRemoveIcon?: boolean;
   showDownloadIcon?: boolean;
   showPreviewIcon?: boolean;
   removeIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   downloadIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   previewIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
-  locale: UploadLocale;
   previewFile?: PreviewFileHandler;
   iconRender?: (
     file: UploadFile<T>,
@@ -177,4 +179,35 @@ export interface UploadListProps<T = any> {
   appendAction?: React.ReactNode;
   appendActionVisible?: boolean;
   itemRender?: ItemRender<T>;
+  locale: UploadLocale;
 }
+
+// ================== Collapse Motion ==================
+const getCollapsedHeight: MotionEventHandler = () => ({
+  height: 0,
+  opacity: 0,
+});
+const getRealHeight: MotionEventHandler = (node) => {
+  const { scrollHeight } = node;
+  return { height: scrollHeight, opacity: 1 };
+};
+const getCurrentHeight: MotionEventHandler = (node) => ({
+  height: node ? node.offsetHeight : 0,
+});
+const skipOpacityTransition: MotionEndEventHandler = (_, event: MotionEvent) =>
+  event?.deadline === true ||
+  (event as TransitionEvent).propertyName === 'height';
+
+export const collapseMotion: CSSMotionProps = {
+  motionName: 'ant-motion-collapse',
+  onAppearStart: getCollapsedHeight,
+  onEnterStart: getCollapsedHeight,
+  onAppearActive: getRealHeight,
+  onEnterActive: getRealHeight,
+  onLeaveStart: getCurrentHeight,
+  onLeaveActive: getCollapsedHeight,
+  onAppearEnd: skipOpacityTransition,
+  onEnterEnd: skipOpacityTransition,
+  onLeaveEnd: skipOpacityTransition,
+  motionDeadline: 500,
+};

@@ -143,6 +143,10 @@
 .@{upload-prefix-cls}-list {
   .reset-component();
   .clearfix();
+
+  // ft定制
+  color: #888;
+  
   line-height: @line-height-base;
 
   // ============================ Item ============================
@@ -160,6 +164,8 @@
       line-height: @line-height-base;
       white-space: nowrap;
       text-overflow: ellipsis;
+      // ft定制
+      text-decoration: none;
     }
 
     &-card-actions {
@@ -245,10 +251,19 @@
       position: absolute;
       bottom: -12px;
       width: 100%;
-      padding-left: @font-size-base + 12px;
+      // padding-left: @font-size-base + 12px;
+      // ft定制
+      padding-left: 17px;
       font-size: @font-size-base;
       line-height: 0;
+
     }
+    
+    // ft定制
+    &-done {
+
+    }
+
   }
 
   // =================== Picture & Picture Card ===================
@@ -261,7 +276,6 @@
       border: @border-width-base @upload-picture-card-border-style
         @border-color-base;
       border-radius: @border-radius-base;
-
       &:hover {
         background: transparent;
       }
@@ -357,6 +371,233 @@
       margin-top: 0;
       padding-left: 56px;
     }
+  }
+
+  // ======================== Picture ========================
+  &-picture {
+    .@{upload-item} {
+      position: relative;
+      height: 66px;
+      padding: @padding-xs;
+      border: @border-width-base @upload-picture-card-border-style
+        @border-color-base;
+      border-radius: @border-radius-base;
+
+      // ft定制
+      // 图片文件单个card样式
+      height: 31px;
+      border: 1px solid #E6ECF2;
+      background: #E6ECF2;
+      padding: 0;
+
+      &:hover {
+        background: transparent;
+
+        // ft定制
+        background: #E6ECF2;
+
+      }
+
+      &-error {
+        border-color: @error-color;
+      }
+    }
+
+    .@{upload-item}-info {
+      padding: 0;
+      // ft定制
+      // background: #E6ECF2;
+
+    }
+
+    .@{upload-item}:hover .@{upload-item}-info {
+      background: transparent;
+    }
+
+    .@{upload-item}-uploading {
+      border-style: dashed;
+      // ft定制
+      // 正在上传状态的item样式
+      border: 1px solid @primary-blue;
+
+      // ft定制
+      // 正在上传状态的文件名
+      .@{upload-item}-name {
+        // ft定制
+        color: @primary-blue;
+      }
+
+      // ft定制
+      // 正在上传状态下 显示百分比进度
+      .ft-progress-show-info .ft-progress-outer{
+        margin: 0;
+        padding: 0;
+        
+      }
+      .ft-progress-show-info .ft-progress-text{
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        color: @white;
+        font-weight: 600;
+      }
+    }
+
+    .@{upload-item}-thumbnail {
+      // width: 48px;
+      // height: 48px;
+      // line-height: 60px;
+      text-align: center;
+      // opacity: 0.8;
+
+      // ft定制
+      width: 29px;
+      height: 29px;
+      padding-left: 10px;
+      padding-right: 5px;
+      line-height: 28px;
+      opacity: 1;
+
+      .@{iconfont-css-prefix} {
+        font-size: 26px;
+      }
+    }
+
+    // Adjust the color of the error icon : https://github.com/ant-design/ant-design/pull/24160
+    .@{upload-item}-error .@{upload-item}-thumbnail {
+      .@{iconfont-css-prefix} {
+        svg path {
+          &[fill='#e6f7ff'] {
+            fill: @error-color-deprecated-bg;
+          }
+
+          &[fill='#1890ff'] {
+            fill: @error-color;
+          }
+        }
+      }
+    }
+
+    .@{upload-item}-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 26px;
+      transform: translate(-50%, -50%);
+
+      .@{iconfont-css-prefix} {
+        font-size: 26px;
+      }
+    }
+
+    .@{upload-item}-image {
+      max-width: 100%;
+    }
+
+    .@{upload-item}-thumbnail img {
+      display: block;
+      // width: 48px;
+      // height: 48px;
+      overflow: hidden;
+
+      // ft定制
+      width: 29px;
+      height: 29px;
+    }
+
+    .@{upload-item}-name {
+      display: inline-block;
+      box-sizing: border-box;
+      max-width: 100%;
+      // margin: 0 0 0 8px;
+      // padding-right: 8px;
+      // padding-left: 48px;
+      overflow: hidden;
+      line-height: 44px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      transition: all 0.3s;
+
+      // ft定制
+      line-height: 21px;
+      margin: 0;
+      padding: 0;
+    }
+
+    // ft定制
+    .@{upload-item} {
+      .@{upload-item}-name {
+        // ft定制
+        line-height: 21px;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .@{upload-item}-uploading .@{upload-item}-name {
+      // margin-bottom: 12px;
+      // ft定制
+      margin-bottom: 0;
+    }
+
+    .@{upload-item}-progress {
+      bottom: 14px;
+      // width: ~'calc(100% - 24px)';
+      margin-top: 0;
+      padding-left: 56px;
+
+      // ft定制
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      padding-left: 0;
+
+      // ft定制
+      .@{lib-prefix}-progress{
+        height: 100%;
+        &-outer{
+          height: 100%;
+          // ft定制
+          // 上传进度完成 progress左右padding
+          margin: 0;
+          padding: 0;
+        }
+        &-text{
+          display: none;
+        }
+        &-inner{
+          height: 100%;
+          background: none;
+          border-radius: 0;
+        }
+        &-bg{
+          background-color: rgba(0,125,250, 0.6);
+          border-radius: 0;
+          height: 100%!important;
+        }
+      }
+
+    }
+
+    // ft定制
+    // list item删除按钮
+    .@{upload-item}-card-actions {
+      padding-right: 5px;
+      button{
+        padding: 0;
+        font-size: 16px;
+        line-height: 21px;
+        color: #888;
+        &:hover{
+          color: #222;
+        }
+      }
+    }
+
   }
 
   // ======================== Picture Card ========================
@@ -565,3 +806,36 @@
 }
 
 // @import './rtl';
+
+
+// ft定制
+.upload-base-wrap{
+  border-color: transparent;
+  .ft-icon{
+    line-height: 14px;
+    margin-right: 5px;
+    position: relative;
+    top: 1px;
+  }
+  &:hover{
+    border-color: @primary-blue;
+    background-color: @primary-blue;
+    color: @white;
+  }
+
+  
+}
+
+.upload-button-wrap{
+  .ft-icon{
+    line-height: 14px;
+    margin-right: 5px;
+    position: relative;
+    top: 1px;
+  }
+  &:hover{
+    border-color: @primary-blue;
+  }
+
+
+}

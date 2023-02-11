@@ -117,7 +117,18 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
   });
 
   // const iconNode = icon && !innerLoading ? icon : 'loadingicon';
-  const iconNode = innerLoading ? 'loadingicon' : icon ? icon : '';
+  // const iconNode = innerLoading ? 'loadingicon' : icon ? icon : '';
+  const iconNode = icon ? (
+    innerLoading ? (
+      'loadingicon'
+    ) : (
+      <span className="ft-btn-icon-wrap">{icon}</span>
+    )
+  ) : innerLoading ? (
+    'loadingicon'
+  ) : (
+    ''
+  );
 
   const handleClick = (
     e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,

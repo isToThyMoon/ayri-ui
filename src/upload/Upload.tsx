@@ -19,6 +19,9 @@ import { UploadProps } from './interface';
 import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
 
+// ft定制
+// import Button from '../button';
+
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
 export { UploadProps };
@@ -422,10 +425,15 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
               showRemoveIcon={!mergedDisabled && showRemoveIcon}
               showPreviewIcon={showPreviewIcon}
               showDownloadIcon={showDownloadIcon}
-              removeIcon={removeIcon}
+              removeIcon={removeIcon || <i className="ft-icon icon-delete"></i>}
               previewIcon={previewIcon}
               downloadIcon={downloadIcon}
-              iconRender={iconRender}
+              iconRender={
+                iconRender ||
+                function () {
+                  return <i className="ft-icon icon-file"></i>;
+                }
+              }
               // locale={{ ...contextLocale, ...propLocale }}
               locale={{ ...propLocale }}
               isImageUrl={isImageUrl}

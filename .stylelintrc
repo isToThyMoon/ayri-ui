@@ -17,6 +17,7 @@
     "length-zero-no-unit": null,
     "declaration-block-no-duplicate-properties": null,
     "plugin/declaration-block-no-ignored-properties": null,
-    "declaration-block-no-redundant-longhand-properties": null
+    "declaration-block-no-redundant-longhand-properties": null,
+    "block-no-empty": null
   }
 }

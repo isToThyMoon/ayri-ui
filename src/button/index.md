@@ -122,8 +122,8 @@ export default () => (
       <Button type="primary" shape="circle">
         <i className="ft-icon icon-search"></i>
       </Button>
-      <Button type="primary">
-        <i className="ft-icon icon-search"></i> 搜索按钮
+      <Button type="primary" icon={<i className="ft-icon icon-search"></i>}>
+        搜索按钮
       </Button>
     </Space>
   </div>
