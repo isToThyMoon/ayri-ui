@@ -33,6 +33,8 @@ demo:
 
 3.多层收纳导航（antd 顶部导航 水平导航）
 
+ft-menu-horizontal
+
 ```jsx
 import React, { useState } from 'react';
 import { Menu } from 'future-ui';
@@ -125,6 +127,8 @@ export default () => {
 
 1.单层导航 右侧展开（垂直菜单 子菜单是弹出的形式）
 
+ft-menu-vertical
+
 ```tsx
 import {
   AppstoreOutlined,
@@ -198,6 +202,7 @@ const App: React.FC = () => (
     style={{ width: 256 }}
     mode="vertical"
     items={items}
+    topTitle="Title-content"
   />
 );
 
@@ -205,13 +210,10 @@ export default App;
 ```
 
 2.单层导航 向下展开（内嵌菜单 垂直菜单，子菜单内嵌在菜单区域）
+内嵌模式
+ft-menu-inline
 
 ```tsx
-import {
-  AppstoreOutlined,
-  MailOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
 import type { MenuProps } from 'future-ui';
 import { Menu } from 'future-ui';
 import React from 'react';
@@ -235,17 +237,17 @@ function getItem(
 }
 
 const items: MenuProps['items'] = [
-  getItem('Navigation One', 'sub1', <MailOutlined />, [
+  getItem('Navigation One', 'sub1', null, [
     getItem('Option 1', '1'),
     getItem('Option 2', '2'),
   ]),
 
-  getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
+  getItem('Navigation Two', 'sub2', null, [
     getItem('Option 5', '5'),
     getItem('Option 6', '6'),
   ]),
 
-  getItem('Navigation Three', 'sub4', <SettingOutlined />, [
+  getItem('Navigation Three', 'sub4', null, [
     getItem('Option 9', '9'),
     getItem('Option 10', '10'),
     getItem('Option 11', '11'),
@@ -262,6 +264,7 @@ const App: React.FC = () => {
     <Menu
       onClick={onClick}
       style={{ width: 256 }}
+      inlineIndent={20}
       defaultSelectedKeys={['1']}
       defaultOpenKeys={['sub1']}
       mode="inline"
@@ -276,11 +279,6 @@ export default App;
 3.侧边导航 带分类名称
 
 ```tsx
-import {
-  AppstoreOutlined,
-  MailOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
 import type { MenuProps } from 'future-ui';
 import { Menu } from 'future-ui';
 import React from 'react';
@@ -304,24 +302,14 @@ function getItem(
 }
 
 const items: MenuProps['items'] = [
-  getItem('Navigation One', 'sub1', <MailOutlined />, [
-    getItem(
-      'Item 1',
-      'g1',
-      null,
-      [getItem('Option 1', '1'), getItem('Option 2', '2')],
-      'group',
-    ),
-    getItem(
-      'Item 2',
-      'g2',
-      null,
-      [getItem('Option 3', '3'), getItem('Option 4', '4')],
-      'group',
-    ),
+  getItem('Navigation One', 'sub1', null, [
+    getItem('Option 1', '1'),
+    getItem('Option 2', '2'),
+    getItem('Option 3', '3'),
+    getItem('Option 4', '4'),
   ]),
 
-  getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
+  getItem('Navigation Two', 'sub2', null, [
     getItem('Option 5', '5'),
     getItem('Option 6', '6'),
     getItem('Submenu', 'sub3', null, [
@@ -330,9 +318,7 @@ const items: MenuProps['items'] = [
     ]),
   ]),
 
-  { type: 'divider' },
-
-  getItem('Navigation Three', 'sub4', <SettingOutlined />, [
+  getItem('Navigation Three', 'sub4', null, [
     getItem('Option 9', '9'),
     getItem('Option 10', '10'),
     getItem('Option 11', '11'),
@@ -357,6 +343,7 @@ const App: React.FC = () => {
     <Menu
       onClick={onClick}
       style={{ width: 256 }}
+      inlineIndent={20}
       defaultSelectedKeys={['1']}
       defaultOpenKeys={['sub1']}
       mode="inline"
@@ -371,15 +358,7 @@ export default App;
 4.平铺式侧边导航+弹层 （inline 模式内嵌菜单 和 inline 模式下 inlineCollapsed 只保留 icon 弹出式菜单，两种模式切换）
 
 ```tsx
-import {
-  AppstoreOutlined,
-  ContainerOutlined,
-  DesktopOutlined,
-  MailOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  PieChartOutlined,
-} from '@ant-design/icons';
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'future-ui';
 import { Button, Menu } from 'future-ui';
 import React, { useState } from 'react';
@@ -403,26 +382,50 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem('Option 1', '1', <PieChartOutlined />),
-  getItem('Option 2', '2', <DesktopOutlined />),
-  getItem('Option 3', '3', <ContainerOutlined />),
+  getItem(
+    'Option 1',
+    '1',
+    <div>
+      <i className="ft-icon icon-setting"></i>
+    </div>,
+  ),
+  getItem(
+    'Option 2',
+    '2',
+    <div>
+      <i className="ft-icon icon-setting"></i>
+    </div>,
+  ),
+  getItem(
+    'Option 3',
+    '3',
+    <div>
+      <i className="ft-icon icon-setting"></i>
+    </div>,
+  ),
 
-  getItem('Navigation One', 'sub1', <MailOutlined />, [
-    getItem('Option 5', '5'),
-    getItem('Option 6', '6'),
-    getItem('Option 7', '7'),
-    getItem('Option 8', '8'),
-  ]),
+  getItem(
+    'Navigation One',
+    'sub1',
+    <div>
+      <i className="ft-icon icon-setting"></i>
+    </div>,
+    [
+      getItem('Option 5', '5'),
+      getItem('Option 6', '6'),
+      getItem('Option 7', '7'),
+      getItem('Option 8', '8'),
+    ],
+  ),
 
-  getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
-    getItem('Option 9', '9'),
-    getItem('Option 10', '10'),
-
-    getItem('Submenu', 'sub3', null, [
-      getItem('Option 11', '11'),
-      getItem('Option 12', '12'),
-    ]),
-  ]),
+  getItem(
+    'Navigation Two',
+    'sub2',
+    <div>
+      <i className="ft-icon icon-setting"></i>
+    </div>,
+    [getItem('Option 9', '9'), getItem('Option 10', '10')],
+  ),
 ];
 
 const App: React.FC = () => {
@@ -446,6 +449,7 @@ const App: React.FC = () => {
         defaultOpenKeys={['sub1']}
         mode="inline"
         theme="dark"
+        inlineIndent={20}
         inlineCollapsed={collapsed}
         items={items}
       />

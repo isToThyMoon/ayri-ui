@@ -82,6 +82,7 @@ function SubMenu(props: SubMenuProps) {
       <RcSubMenu
         {...omit(props, ['icon'])}
         title={titleNode}
+        popupOffset={props.popupOffset || [0, 0]}
         popupClassName={classNames(
           prefixCls,
           `${prefixCls}-${theme || antdMenuTheme}`,

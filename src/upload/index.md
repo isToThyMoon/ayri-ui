@@ -188,7 +188,8 @@ export default App;
 多用于用户头像等
 
 ```tsx
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import { Progress } from 'antd';
+import 'antd/es/progress/style/index.css';
 import { Upload } from 'future-ui';
 import React, { useState } from 'react';
 import type { UploadChangeParam } from './index.tsx';
@@ -214,30 +215,57 @@ const beforeUpload = (file: RcFile) => {
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
+  const [percent, setPercent] = useState(0);
   const [imageUrl, setImageUrl] = useState<string>();
 
   const handleChange: UploadProps['onChange'] = (
     info: UploadChangeParam<UploadFile>,
   ) => {
+    console.log('file', info.file);
+    console.log('fileList', info.fileList);
+    console.log('event', info.event);
     if (info.file.status === 'uploading') {
       setLoading(true);
+      setPercent(info.file.percent);
       return;
     }
     if (info.file.status === 'done') {
       // Get this url from response in real world.
       getBase64(info.file.originFileObj as RcFile, (url) => {
+        // setPercent(info.file.percent)
         setLoading(false);
         setImageUrl(url);
       });
     }
+
+    if (info.file.status === 'error') {
+      // Get this url from response in real world.
+      getBase64(info.file.originFileObj as RcFile, (url) => {
+        // setPercent(info.file.percent)
+        setLoading(false);
+        // setImageUrl(url);
+      });
+    }
   };
 
-  const uploadButton = (
-    <div>
-      {loading ? <LoadingOutlined /> : <PlusOutlined />}
-      <div style={{ marginTop: 8 }}>Upload</div>
-    </div>
-  );
+  const uploadButton =
+    // <div>
+    //   {loading ? <LoadingOutlined /> : <PlusOutlined />}
+    //   <div style={{ marginTop: 8 }}>Upload</div>
+    // </div>
+    loading ? (
+      <div style={{ width: '60px' }}>
+        <Progress
+          percent={percent}
+          showInfo={false}
+          strokeWidth={4}
+          strokeColor="#00C88C"
+          trailColor="#CED3D9"
+        />
+      </div>
+    ) : (
+      <i className="ft-icon icon-add" />
+    );
 
   return (
     <>
@@ -266,7 +294,6 @@ export default App;
 ### 照片墙
 
 ```tsx
-import { PlusOutlined } from '@ant-design/icons';
 import { Upload } from 'future-ui';
 import React, { useState } from 'react';
 import type { RcFile, UploadProps } from './index.tsx';
@@ -341,10 +368,11 @@ const App: React.FC = () => {
     setFileList(newFileList);
 
   const uploadButton = (
-    <div>
-      <PlusOutlined />
-      <div style={{ marginTop: 8 }}>Upload</div>
-    </div>
+    // <div>
+    //   {loading ? <LoadingOutlined /> : <PlusOutlined />}
+    //   <div style={{ marginTop: 8 }}>Upload</div>
+    // </div>
+    <i className="ft-icon icon-add" />
   );
   return (
     <>

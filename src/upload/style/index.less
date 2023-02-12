@@ -3,12 +3,11 @@
 
 @upload-prefix-cls: ~'@{lib-prefix}-upload';
 @upload-item: ~'@{lib-prefix}-upload-list-item';
-@upload-picture-card-size: 104px;
+@upload-picture-card-size: 80px;
 @upload-picture-card-border-style: @border-style-base;
 
 .@{upload-prefix-cls} {
   .reset-component();
-
   outline: 0;
 
   p {
@@ -41,7 +40,7 @@
     margin-bottom: 8px;
     text-align: center;
     vertical-align: top;
-    background-color: @background-color-light;
+    background-color:#f5f7fa;
     border: @border-width-base dashed @border-color-base;
     border-radius: @border-radius-base;
     cursor: pointer;
@@ -53,6 +52,16 @@
       justify-content: center;
       height: 100%;
       text-align: center;
+
+      // ft定制
+      color: #b3b3b3;
+      // ft定制
+      // 单卡片式 上传 内部加号 icon
+      .ft-icon{
+        font-size: 32px;
+        line-height: 32px;
+      }
+
     }
 
     &:hover {
@@ -146,7 +155,7 @@
 
   // ft定制
   color: #888;
-  
+
   line-height: @line-height-base;
 
   // ============================ Item ============================
@@ -571,11 +580,11 @@
         }
         &-inner{
           height: 100%;
-          background: none;
+          background: none!important;
           border-radius: 0;
         }
         &-bg{
-          background-color: rgba(0,125,250, 0.6);
+          background-color: rgba(0,125,250, 0.6)!important;
           border-radius: 0;
           height: 100%!important;
         }
@@ -613,6 +622,24 @@
     .@{upload-item} {
       height: 100%;
       margin: 0;
+      // ft定制
+      padding: 0;
+      // ft定制
+      &.ft-upload-list-item-uploading{
+        // ft定制
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .ft-upload-list-item-info{
+          display: none;
+        }
+        .ft-upload-list-item-progress{
+          // height: 4px;
+          width: 60px;
+          bottom: unset;
+        }
+      }
+
     }
 
     .@{upload-item}-info {
@@ -629,6 +656,8 @@
         opacity: 0;
         transition: all 0.3s;
         content: ' ';
+        // ft定制
+        background-color: unset;
       }
     }
 
@@ -705,6 +734,41 @@
           display: none;
         }
       }
+    }
+
+    //ft定制
+    .@{upload-item}-error, .@{upload-item}-done{
+      .@{upload-item}-progress{
+        display: none;
+      }
+
+      .@{upload-item}-actions{
+        opacity: 1;
+        top: 0;
+        right: 0;
+        left: unset;
+        transform: translate(2px, -2px);
+        a{
+          display: none;
+        }
+        button{
+          opacity: 1;
+          padding: 0;
+          font-size: 16px;
+          line-height: 16px;
+          .ft-btn-icon-wrap{
+            display: flex;
+            margin: 0;
+            color: #000;
+            opacity: 0.6;
+            &:hover{
+              opacity: 1;
+            }
+          }
+        }
+
+      }
+
     }
 
     .@{upload-item}-progress {

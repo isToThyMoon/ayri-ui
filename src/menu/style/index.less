@@ -16,9 +16,12 @@
 @menu-item-color: @black; // 默认状态下menu项目文字颜色 有icon时icon色值也会继承该值
 // @menu-inline-submenu-bg: @background-color-light;
 @menu-inline-submenu-bg: @white; // inline模式内嵌菜单 submenu背景色
-@menu-highlight-color: @primary-color; // 选中的menu项目文字颜色 有icon时icon色值也会继承该值
+
+@menu-highlight-color: #222; // 选中的menu项目文字颜色 有icon时icon色值也会继承该值
 @menu-highlight-danger-color: @error-color;
-@menu-item-active-bg: @primary-red; // menu item选中激活背景色
+
+@menu-item-active-bg: #e6ecf2; // menu item选中激活背景色
+
 @menu-item-active-danger-bg: @warning;
 @menu-item-active-border-width: 3px;
 @menu-item-group-title-color: @text-color-secondary;
@@ -32,6 +35,13 @@
 @menu-icon-size: @menu-item-font-size;
 @menu-icon-size-lg: @font-size-lg;
 @menu-item-group-title-font-size: @menu-item-font-size;
+
+
+// ft定制
+//vertical和inline模式未激活态和激活态
+@menu-item-active-font-color: @primary-red;
+
+
 
 
 .accessibility-focus() {
@@ -54,10 +64,13 @@
   list-style: none;
   background: @menu-bg;
   outline: none;
-  box-shadow: @box-shadow-base;
+  // box-shadow: @box-shadow-base;
   transition: background @animation-duration-slow,
     width @animation-duration-slow cubic-bezier(0.2, 0, 0, 1) 0s;
   .clearfix();
+
+  //ft定制
+  box-shadow: none;
 
   &&-root:focus-visible {
     .accessibility-focus();
@@ -87,10 +100,15 @@
   &-item-group-title {
     height: @menu-item-group-height;
     padding: 8px 16px;
-    color: @menu-item-group-title-color;
+    // color: @menu-item-group-title-color;
     font-size: @menu-item-group-title-font-size;
     line-height: @menu-item-group-height;
     transition: all @animation-duration-slow;
+
+    // ft定制
+    padding: 8px 20px;
+    color: #888888;
+
   }
 
   &-horizontal &-submenu {
@@ -113,13 +131,13 @@
   &-submenu-title:active {
     background: @menu-item-active-bg;
     // ft定制
-    color: @white;
+    // color: @white;
   }
   // ft定制
   &-item:active&-item:hover,
   &-submenu-title:active&-submenu-title:hover {
     background: @menu-item-active-bg;
-    color: @white;
+    // color: @white;
   }
   
   &-submenu &-sub {
@@ -193,11 +211,12 @@
 
   &:not(&-horizontal) &-item-selected {
     background-color: @menu-item-active-bg;
+
     // ft定制
-    color: @white;
-    &:hover{
-      color: @white;
-    }
+    // color:  @menu-item-active-font-color;
+    // &:hover{
+    //   color:  @menu-item-active-font-color;
+    // }
 
   }
 
@@ -308,9 +327,13 @@
       position: absolute;
       z-index: @zindex-dropdown;
       background: transparent;
-      border-radius: @border-radius-base;
+      // border-radius: @border-radius-base;
       box-shadow: none;
       transform-origin: 0 0;
+
+      //ft定制
+      border-radius: 0;
+      
 
       // https://github.com/ant-design/ant-design/issues/13955
       &::before {
@@ -335,7 +358,11 @@
 
     > .@{menu-prefix-cls} {
       background-color: @menu-bg;
-      border-radius: @border-radius-base;
+      // border-radius: @border-radius-base;
+
+      // ft定制
+      border-radius: 0;
+      border: 1px solid #e6ecf2;
 
       &-submenu-title::after {
         transition: transform @animation-duration-slow @ease-in-out;
@@ -350,11 +377,17 @@
     &-arrow {
       position: absolute;
       top: 50%;
-      right: 16px;
+      // right: 16px;
       width: 10px;
       color: @menu-item-color;
       transform: translateY(-50%);
       transition: transform @animation-duration-slow @ease-in-out;
+      
+      //ft定制
+      right: 23px;
+    }
+    &-expand-icon{
+      width: 14px;
     }
 
     &-arrow {
@@ -384,7 +417,9 @@
 
     &:hover > &-title > &-expand-icon,
     &:hover > &-title > &-arrow {
-      color: @menu-highlight-color;
+      // color: @menu-highlight-color;
+      // ft定制
+      // color: @menu-highlight-color;
     }
 
     .@{menu-prefix-cls}-inline-collapsed &-arrow,
@@ -421,7 +456,22 @@
   &-vertical-left &-submenu-selected,
   &-vertical-right &-submenu-selected {
     color: @menu-highlight-color;
+
+    // ft定制
+    // vetical 侧边弹出式 已选中项目 title样式
+    color: #000;
+    background: #e6ecf2;
+
   }
+
+  // ft定制
+  &-vertical &-submenu-active,
+  &-vertical-left &-submenu-active,
+  &-vertical-right &-submenu-active {
+    color: #000!important;
+    background: #e6ecf2;
+  }
+
 
   &-horizontal {
     line-height: @menu-horizontal-line-height;
@@ -529,10 +579,15 @@
       height: @menu-item-height;
       margin-top: @menu-item-vertical-margin;
       margin-bottom: @menu-item-vertical-margin;
-      padding: 0 16px;
+      // padding: 0 16px;
       overflow: hidden;
       line-height: @menu-item-height;
       text-overflow: ellipsis;
+
+      // ft定制
+      padding: 0 20px;
+      margin-top: 0;
+      margin-bottom: 0;
     }
 
     // disable margin collapsed
@@ -542,6 +597,9 @@
 
     .@{menu-prefix-cls}-item:not(:last-child) {
       margin-bottom: @menu-item-boundary-margin;
+
+      //ft定制
+      margin-bottom: 0;
     }
 
     > .@{menu-prefix-cls}-item,
@@ -602,6 +660,35 @@
         }
       }
     }
+
+
+    //ft定制
+    .ft-menu-submenu-inline{
+      .ft-menu-submenu-title{
+        &:hover{
+          background: #e6ecf2;
+          color: #222;
+        }
+      }
+
+      &.ft-menu-submenu-open{
+        & > .ft-menu-submenu-title{
+          & > .ft-menu-submenu-expand-icon{
+            transform: translateY(-50%) rotate(180deg);
+          }
+        }
+        
+      }
+
+    }
+    //ft定制
+    .ft-menu-submenu-inline.ft-menu-submenu-selected{
+      .ft-menu-submenu-title{
+        background: #e6ecf2;
+        color: #222;
+      }
+    }
+
   }
 
   &&-inline-collapsed {
@@ -619,6 +706,10 @@
       left: 0;
       padding: 0 ~'calc(50% - @{menu-icon-size-lg} / 2)';
       text-overflow: clip;
+      
+      //ft定制
+      padding: 5px 20px;
+      height: unset;
 
       .@{menu-prefix-cls}-submenu-arrow {
         opacity: 0;
@@ -663,6 +754,69 @@
       text-overflow: ellipsis;
     }
 
+    // ft定制
+    // collapse时取消item的背景色 这些背景色在未collapse时生效
+    .ft-menu-item-selected{
+      background: none;
+    }
+    .ft-menu-item:active{
+      background: none;
+    }
+
+    // ft定制
+    .@{menu-prefix-cls}-item:hover,
+    .@{menu-prefix-cls}-item.ft-menu-item-selected{
+      .@{menu-prefix-cls}-item-icon{
+        background-color: @menu-item-active-bg;
+        // color: @white;
+        border-radius: 6px;
+        transition: color 0s;
+      }
+    }
+
+    // ft定制
+    &.ft-menu-vertical .ft-menu-submenu-active{
+      background: none;
+    }
+    // ft定制
+    &.ft-menu-vertical .ft-menu-submenu-vertical.ft-menu-submenu-selected{
+      background: @white;
+      color: #000000;
+      .@{menu-prefix-cls}-item-icon{
+        background-color: @menu-item-active-bg;
+        color: @white;
+        border-radius: 6px;
+        transition: color 0s;
+      }
+    }
+    // ft定制
+    &.ft-menu-vertical .ft-menu-submenu-vertical .ft-menu-submenu-title {
+      &:hover{
+        background: @white;
+        color: #000000;
+
+        .@{menu-prefix-cls}-item-icon{
+          background-color: @menu-item-active-bg;
+          color: @white;
+          border-radius: 6px;
+          transition: color 0s;
+        }
+      }
+
+    }
+
+    // ft定制
+    .@{menu-prefix-cls}-item > .@{menu-prefix-cls}-item-icon, 
+    .ft-menu-submenu > .ft-menu-submenu-title .@{menu-prefix-cls}-item-icon{
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+
     //ft定制
     // inline模式下 collapse时只显示主要icon icon后面的expanicon要隐藏
     & > .@{menu-prefix-cls}-submenu.@{menu-prefix-cls}-submenu-vertical {
@@ -671,6 +825,8 @@
       }
     }
 
+
+
   }
 
   &-item-group-list {
@@ -678,7 +834,9 @@
     padding: 0;
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu-title {
-      padding: 0 16px 0 28px;
+      // padding: 0 16px 0 28px;
+      //ft定制
+      padding: 0 16px 0 40px!important;
     }
   }
 
@@ -714,7 +872,9 @@
     }
 
     & .@{menu-prefix-cls}-item-group-title {
-      padding-left: 32px;
+      // padding-left: 32px;
+      // ft定制
+      padding-left: 40px
     }
   }
 
@@ -783,6 +943,36 @@
       }
     }
   }
+
+  &-vertical{
+    .@{menu-prefix-cls}-submenu-vertical{
+
+      .@{menu-prefix-cls}-submenu-title{
+
+        &:hover{
+          background: #e6ecf2;
+          color: @black;
+          .@{menu-prefix-cls}-submenu-expand-icon{
+            color: @black;
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.ft-menu-top-title{
+  display: inline-flex;
+  width: 100%;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  color: #222222;
+  padding: 15px 20px;
 }
 
 // 水平menu超出容器溢出，出现rest按钮 hover时出现的浮层样式设置

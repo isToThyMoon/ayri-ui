@@ -38,7 +38,8 @@ export type MenuMode =
 export interface MenuProps extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;
   inlineIndent?: number;
-
+  // ft定制
+  topTitle?: string;
   /**
    * @internal Not promise crash if used in production. Connect with chenshuai2144
    *   for removing.
@@ -216,9 +217,16 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
           direction={undefined}
           defaultMotions={defaultMotions}
           expandIcon={mergedExpandIcon}
+          subMenuCloseDelay={0.05}
+          subMenuOpenDelay={0.1}
           ref={ref}
         >
-          {mergedChildren}
+          <>
+            {props.topTitle ? (
+              <li className="ft-menu-top-title">{props.topTitle}</li>
+            ) : null}
+            {mergedChildren}
+          </>
         </RcMenu>
       </MenuContext.Provider>
     </OverrideContext.Provider>

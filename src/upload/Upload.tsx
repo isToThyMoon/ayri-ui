@@ -425,7 +425,13 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
               showRemoveIcon={!mergedDisabled && showRemoveIcon}
               showPreviewIcon={showPreviewIcon}
               showDownloadIcon={showDownloadIcon}
-              removeIcon={removeIcon || <i className="ft-icon icon-delete"></i>}
+              removeIcon={
+                removeIcon || listType === 'picture-card' ? (
+                  <i className="ft-icon icon-error"></i>
+                ) : (
+                  <i className="ft-icon icon-delete"></i>
+                )
+              }
               previewIcon={previewIcon}
               downloadIcon={downloadIcon}
               iconRender={
@@ -437,7 +443,13 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
               // locale={{ ...contextLocale, ...propLocale }}
               locale={{ ...propLocale }}
               isImageUrl={isImageUrl}
-              progress={progress}
+              progress={{
+                ...progress,
+                strokeWidth: 4,
+                strokeColor: '#00C88C',
+                trailColor: '#CED3D9',
+                showInfo: false,
+              }}
               appendAction={button}
               appendActionVisible={buttonVisible}
               itemRender={itemRender}
