@@ -103,7 +103,7 @@ function shouldDelay(spinning?: boolean, delay?: number): boolean {
   return !!spinning && !!delay && !isNaN(Number(delay));
 }
 
-const Spin: React.FC<SpinClassProps> = (props) => {
+const InternalSpin: React.FC<SpinClassProps> = (props) => {
   const {
     spinPrefixCls: prefixCls,
     spinning: customSpinning = true,
@@ -189,7 +189,8 @@ const Spin: React.FC<SpinClassProps> = (props) => {
   return renderSpin();
 };
 
-const SpinFC: SpinFCType = (props) => {
+// const SpinFC: SpinFCType = (props) => {
+const Spin: SpinFCType = (props) => {
   const { prefixCls: customizePrefixCls } = props;
   // const { getPrefixCls } = React.useContext(ConfigContext);
 
@@ -200,15 +201,16 @@ const SpinFC: SpinFCType = (props) => {
     ...props,
     spinPrefixCls,
   };
-  return <Spin {...spinClassProps} />;
+  return <InternalSpin {...spinClassProps} />;
 };
 
-SpinFC.setDefaultIndicator = (indicator: React.ReactNode) => {
+Spin.setDefaultIndicator = (indicator: React.ReactNode) => {
   defaultIndicator = indicator;
 };
 
 if (process.env.NODE_ENV !== 'production') {
-  SpinFC.displayName = 'Spin';
+  Spin.displayName = 'Spin';
 }
 
-export default SpinFC;
+export { Spin };
+export default Spin;

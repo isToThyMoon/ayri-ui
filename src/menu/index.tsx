@@ -23,6 +23,7 @@ import SubMenu, { SubMenuProps } from './SubMenu';
 export type { MenuItemGroupProps } from 'rc-menu';
 export type { MenuDividerProps } from './MenuDivider';
 export type { MenuTheme, SubMenuProps, MenuItemProps };
+export { Menu };
 
 export interface SiderContextProps {
   siderCollapsed?: boolean;

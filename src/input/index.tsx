@@ -11,6 +11,8 @@ export type { InputProps, InputRef } from './Input';
 // export { PasswordProps } from './Password';
 export type { SearchProps } from './Search';
 export type { TextAreaProps } from './TextArea';
+// Input.Password = Password;
+export { Input };
 
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<
@@ -27,5 +29,4 @@ const Input = InternalInput as CompoundedComponent;
 // Input.Group = Group;
 Input.Search = Search;
 Input.TextArea = TextArea;
-// Input.Password = Password;
 export default Input;

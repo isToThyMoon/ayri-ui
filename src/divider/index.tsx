@@ -74,5 +74,5 @@ const Divider: React.FC<DividerProps> = (props) => {
     </div>
   );
 };
-
+export { Divider };
 export default Divider;

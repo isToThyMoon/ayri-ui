@@ -10,6 +10,7 @@ export {
   UploadListProps,
   UploadProps,
 } from './interface';
+export { Upload };
 
 type InternalUploadType = typeof InternalUpload;
 interface UploadInterface<T = any> extends InternalUploadType {

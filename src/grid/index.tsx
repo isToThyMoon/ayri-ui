@@ -10,5 +10,5 @@ function useBreakpoint() {
 export type { ColProps, ColSize } from './col';
 export type { RowProps } from './row';
 export { Row, Col };
-
+export { useBreakpoint };
 export default { useBreakpoint };

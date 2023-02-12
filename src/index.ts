@@ -5,6 +5,7 @@ export { default as Col } from './col';
 export type { ColProps } from './col';
 // export type { CheckboxOptionType, CheckboxProps } from './checkbox';
 export { default as Divider } from './divider';
+export { Drawer } from './drawer';
 // export type {
 //   ColumnGroupType as TableColumnGroupType,
 //   ColumnProps as TableColumnProps,

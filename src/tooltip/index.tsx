@@ -16,6 +16,7 @@ import type { LiteralUnion } from '../_util/type';
 import warning from '../_util/warning';
 
 export { AdjustOverflow, PlacementsConfig };
+export { Tooltip };
 
 export type TooltipPlacement =
   | 'top'

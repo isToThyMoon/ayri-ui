@@ -420,3 +420,5 @@ export default InputNumber as (<T extends ValueType = ValueType>(
     ref?: React.Ref<HTMLInputElement>;
   },
 ) => React.ReactElement) & { displayName?: string };
+
+export { InputNumber };

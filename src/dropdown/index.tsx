@@ -10,4 +10,6 @@ export type {
   DropdownButtonProps,
   DropdownButtonType,
 } from './dropdown-button';
+export { Dropdown };
+
 export default Dropdown;

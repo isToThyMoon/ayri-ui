@@ -43,7 +43,7 @@ function getNumberSize(size: SpaceSize) {
   return typeof size === 'string' ? spaceSize[size] : size || 0;
 }
 
-const Space: React.FC<SpaceProps> = (props) => {
+const InternalSpace: React.FC<SpaceProps> = (props) => {
   // const { getPrefixCls, space, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {
@@ -161,7 +161,8 @@ interface CompoundedComponent extends React.FC<SpaceProps> {
   Compact: typeof Compact;
 }
 
-const CompoundedSpace = Space as CompoundedComponent;
+const CompoundedSpace = InternalSpace as CompoundedComponent;
 CompoundedSpace.Compact = Compact;
 
+export { CompoundedSpace as Space };
 export default CompoundedSpace;
