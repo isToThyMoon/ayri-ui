@@ -1,0 +1,220 @@
+@import "~@future/core/dist/style/fonts.css";
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+* {
+  box-sizing: border-box;
+}
+.ft-table-header::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  border: none;
+}
+.ft-table-header::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #d8d8d8;
+}
+.ft-table-header::-webkit-scrollbar-track {
+  border: none;
+  -webkit-box-shadow: 0;
+  box-shadow: 0;
+  border-radius: 0;
+  height: 10px;
+  background: #ffffff;
+}
+.ft-table-content,
+.ft-table-body {
+  overflow-x: scroll!important;
+  overflow-x: overlay!important;
+}
+.ft-table-content::-webkit-scrollbar,
+.ft-table-body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  border: none;
+}
+.ft-table-content::-webkit-scrollbar-thumb,
+.ft-table-body::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #d8d8d8;
+}
+.ft-table-content::-webkit-scrollbar-track,
+.ft-table-body::-webkit-scrollbar-track {
+  border: none;
+  -webkit-box-shadow: 0;
+  box-shadow: 0;
+  border-radius: 0;
+  height: 10px;
+  background: transparent;
+}
+.ft-table-sticky-scroll {
+  opacity: 1;
+  border-top: none;
+  align-items: flex-end;
+  background: transparent;
+}
+.ft-table-sticky-scroll-bar {
+  opacity: 1;
+  height: 10px;
+  background-color: #d8d8d8;
+  border-radius: 5px;
+}
+.ft-table-sticky-scroll-bar:hover {
+  background-color: #d8d8d8;
+  border-top: none;
+}
+.ft-progress {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #222222;
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  list-style: none;
+  font-feature-settings: 'tnum';
+  display: inline-block;
+}
+.ft-progress-line {
+  position: relative;
+  width: 100%;
+  font-size: 14px;
+}
+.ft-progress-steps {
+  display: inline-block;
+}
+.ft-progress-steps-outer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.ft-progress-steps-item {
+  flex-shrink: 0;
+  min-width: 2px;
+  margin-right: 2px;
+  background: #f3f3f3;
+  transition: all 0.3s;
+}
+.ft-progress-steps-item-active {
+  background: #007dfa;
+}
+.ft-progress-outer {
+  display: inline-block;
+  width: 100%;
+  margin-right: 0;
+  padding-right: 0;
+}
+.ft-progress-show-info .ft-progress-outer {
+  margin-right: calc(-2em - 8px);
+  padding-right: calc(2em + 8px);
+}
+.ft-progress-inner {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  background-color: #f0f1f2;
+  border-radius: 100px;
+}
+.ft-progress-circle-trail {
+  stroke: #f0f1f2;
+}
+.ft-progress-circle-path {
+  animation: ft-progress-appear 0.3s;
+}
+.ft-progress-inner:not(.ft-progress-circle-gradient) .ft-progress-circle-path {
+  stroke: #007dfa;
+}
+.ft-progress-success-bg,
+.ft-progress-bg {
+  position: relative;
+  background-color: #007dfa;
+  border-radius: 100px;
+  transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
+}
+.ft-progress-success-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #00c88c;
+}
+.ft-progress-text {
+  display: inline-block;
+  width: 2em;
+  margin-left: 8px;
+  color: #222222;
+  font-size: 1em;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: left;
+  vertical-align: middle;
+  word-break: normal;
+}
+.ft-progress-status-active .ft-progress-bg::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  border-radius: 10px;
+  opacity: 0;
+  animation: ft-progress-active 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+  content: '';
+}
+.ft-progress-status-exception .ft-progress-bg {
+  background-color: #e64545;
+}
+.ft-progress-status-exception .ft-progress-text {
+  color: #e64545;
+}
+.ft-progress-status-exception .ft-progress-inner:not(.ft-progress-circle-gradient) .ft-progress-circle-path {
+  stroke: #e64545;
+}
+.ft-progress-status-success .ft-progress-bg {
+  background-color: #00c88c;
+}
+.ft-progress-status-success .ft-progress-text {
+  color: #00c88c;
+}
+.ft-progress-status-success .ft-progress-inner:not(.ft-progress-circle-gradient) .ft-progress-circle-path {
+  stroke: #00c88c;
+}
+.ft-progress-circle .ft-progress-inner {
+  position: relative;
+  line-height: 1;
+  background-color: transparent;
+}
+.ft-progress-circle .ft-progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: #222222;
+  font-size: 1em;
+  line-height: 1;
+  white-space: normal;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+.ft-progress-circle.ft-progress-status-exception .ft-progress-text {
+  color: #e64545;
+}
+.ft-progress-circle.ft-progress-status-success .ft-progress-text {
+  color: #00c88c;
+}
+@keyframes ft-progress-active {
+  0% {
+    transform: translateX(-100%) scaleX(0);
+    opacity: 0.1;
+  }
+  20% {
+    transform: translateX(-100%) scaleX(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0) scaleX(1);
+    opacity: 0;
+  }
+}

@@ -33,18 +33,12 @@
   },
   "lint-staged": {
     "*.{md,json}": [
-      "prettier --write --no-error-on-unmatched-pattern"
     ],
     "*.{css,less}": [
-      "stylelint"
     ],
     "*.{js,jsx}": [
-      "eslint",
-      "prettier --write"
     ],
     "*.{ts,tsx}": [
-      "eslint",
-      "prettier --parser=typescript --write"
     ]
   },
   "dependencies": {

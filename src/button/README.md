@@ -39,7 +39,7 @@ demo:
 ```jsx
 import React from 'react';
 import { Space, Button } from 'future-ui';
-import 'future-ui/es/button/style/index.less';
+import 'future-ui/es/button/style/index.css';
 
 export default () => (
   <div>
@@ -63,7 +63,6 @@ export default () => (
 ```jsx
 import React from 'react';
 import { Space, Button } from 'future-ui';
-import 'future-ui/es/button/style/index.less';
 
 export default () => (
   <div>
@@ -88,7 +87,6 @@ export default () => (
 import '@future/core/dist/style/fonts.css';
 import React from 'react';
 import { Space, Button } from 'future-ui';
-import 'future-ui/es/button/style/index.less';
 
 export default () => (
   <div>
@@ -111,7 +109,6 @@ export default () => (
 import '@future/core/dist/style/fonts.css';
 import React from 'react';
 import { Space, Button } from 'future-ui';
-import 'future-ui/es/button/style/index.less';
 
 export default () => (
   <div>
@@ -142,7 +139,6 @@ export default () => (
 import '@future/core/dist/style/fonts.css';
 import React from 'react';
 import { Space, Button } from 'future-ui';
-import 'future-ui/es/button/style/index.less';
 
 export default () => (
   <div>

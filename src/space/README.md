@@ -37,7 +37,7 @@ supreme: 40,
 
 ```tsx
 import { Space } from 'future-ui';
-import 'future-ui/es/button/style/index.less';
+// import 'future-ui/es/button/style/index.less';
 import 'future-ui/es/space/style/index.less';
 import React from 'react';
 

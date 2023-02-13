@@ -21,15 +21,15 @@ export default defineConfig({
     math: 'always',
   },
   extraBabelPlugins: [
-    [
-      'babel-plugin-import',
-      {
-        libraryName: 'ayri-ui',
-        libraryDirectory: 'es',
-        style: true,
-      },
-      'ayri-ui',
-    ],
+    // [
+    //   'babel-plugin-import',
+    //   {
+    //     libraryName: 'ayri-ui',
+    //     libraryDirectory: 'es',
+    //     style: true,
+    //   },
+    //   'ayri-ui',
+    // ],
     // [
     //   'babel-plugin-import',
     //   {

@@ -1,0 +1,261 @@
+
+
+* {
+  box-sizing: border-box;
+}
+.ft-table-header::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  border: none;
+}
+.ft-table-header::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #d8d8d8;
+}
+.ft-table-header::-webkit-scrollbar-track {
+  border: none;
+  -webkit-box-shadow: 0;
+  box-shadow: 0;
+  border-radius: 0;
+  height: 10px;
+  background: #ffffff;
+}
+.ft-table-content,
+.ft-table-body {
+  overflow-x: scroll!important;
+  overflow-x: overlay!important;
+}
+.ft-table-content::-webkit-scrollbar,
+.ft-table-body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  border: none;
+}
+.ft-table-content::-webkit-scrollbar-thumb,
+.ft-table-body::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #d8d8d8;
+}
+.ft-table-content::-webkit-scrollbar-track,
+.ft-table-body::-webkit-scrollbar-track {
+  border: none;
+  -webkit-box-shadow: 0;
+  box-shadow: 0;
+  border-radius: 0;
+  height: 10px;
+  background: transparent;
+}
+.ft-table-sticky-scroll {
+  opacity: 1;
+  border-top: none;
+  align-items: flex-end;
+  background: transparent;
+}
+.ft-table-sticky-scroll-bar {
+  opacity: 1;
+  height: 10px;
+  background-color: #d8d8d8;
+  border-radius: 5px;
+}
+.ft-table-sticky-scroll-bar:hover {
+  background-color: #d8d8d8;
+  border-top: none;
+}
+.ft-spin {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #222222;
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  list-style: none;
+  font-feature-settings: 'tnum';
+  position: absolute;
+  display: none;
+  color: #e64545;
+  text-align: center;
+  vertical-align: middle;
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+.ft-spin-spinning {
+  position: static;
+  display: inline-flex;
+  opacity: 1;
+}
+.ft-spin-nested-loading {
+  position: relative;
+}
+.ft-spin-nested-loading > div > .ft-spin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
+}
+.ft-spin-nested-loading > div > .ft-spin .ft-spin-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -26px / 2;
+}
+.ft-spin-nested-loading > div > .ft-spin .ft-spin-text {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  padding-top: 12px / 2 + 2px;
+  text-shadow: none;
+}
+.ft-spin-nested-loading > div > .ft-spin.ft-spin-show-text .ft-spin-dot {
+  margin-top: -26px / 2 - 10px;
+}
+.ft-spin-nested-loading > div > .ft-spin-sm .ft-spin-dot {
+  margin: -14px / 2;
+}
+.ft-spin-nested-loading > div > .ft-spin-sm .ft-spin-text {
+  padding-top: 0px / 2 + 2px;
+}
+.ft-spin-nested-loading > div > .ft-spin-sm.ft-spin-show-text .ft-spin-dot {
+  margin-top: -14px / 2 - 10px;
+}
+.ft-spin-nested-loading > div > .ft-spin-lg .ft-spin-dot {
+  margin: -32px / 2;
+}
+.ft-spin-nested-loading > div > .ft-spin-lg .ft-spin-text {
+  padding-top: 18px / 2 + 2px;
+}
+.ft-spin-nested-loading > div > .ft-spin-lg.ft-spin-show-text .ft-spin-dot {
+  margin-top: -32px / 2 - 10px;
+}
+.ft-spin-container {
+  position: relative;
+  transition: opacity 0.3s;
+}
+.ft-spin-container::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: none \9;
+  width: 100%;
+  height: 100%;
+  background: none;
+  opacity: 0;
+  transition: all 0.3s;
+  content: '';
+  pointer-events: none;
+}
+.ft-spin-blur {
+  clear: both;
+  overflow: hidden;
+  opacity: 0.5;
+  user-select: none;
+  pointer-events: none;
+}
+.ft-spin-blur::after {
+  opacity: 0.4;
+  pointer-events: auto;
+}
+.ft-spin-tip {
+  color: #555555;
+}
+.ft-spin-dot {
+  position: relative;
+  display: inline-block;
+  font-size: 26px;
+  width: 1em;
+  height: 1em;
+}
+.ft-spin-dot-item {
+  position: absolute;
+  display: block;
+  width: 9px;
+  height: 9px;
+  background-color: #e64545;
+  border-radius: 100%;
+  transform: scale(0.75);
+  transform-origin: 50% 50%;
+  opacity: 0.3;
+  animation: antSpinMove 1s infinite linear alternate;
+}
+.ft-spin-dot-item:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+.ft-spin-dot-item:nth-child(2) {
+  top: 0;
+  right: 0;
+  animation-delay: 0.4s;
+}
+.ft-spin-dot-item:nth-child(3) {
+  right: 0;
+  bottom: 0;
+  animation-delay: 0.8s;
+}
+.ft-spin-dot-item:nth-child(4) {
+  bottom: 0;
+  left: 0;
+  animation-delay: 1.2s;
+}
+.ft-spin-dot-spin {
+  transform: rotate(45deg);
+  animation: antRotate 1.2s infinite linear;
+}
+.ft-spin-sm .ft-spin-dot {
+  font-size: 14px;
+}
+.ft-spin-sm .ft-spin-dot i {
+  width: 6px;
+  height: 6px;
+}
+.ft-spin-lg .ft-spin-dot {
+  font-size: 32px;
+}
+.ft-spin-lg .ft-spin-dot i {
+  width: 14px;
+  height: 14px;
+}
+.ft-spin.ft-spin-show-text .ft-spin-text {
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 9px;
+  color: #555555;
+}
+.ft-spin.ft-spin-show-text.ft-spin-show-text-vertical {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.ft-spin.ft-spin-show-text.ft-spin-show-text-vertical .ft-spin-text {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: unset;
+  margin-top: 7px;
+  color: #555555;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ */
+  .ft-spin-blur {
+    background: none;
+    opacity: 0.5;
+  }
+}
+@keyframes antSpinMove {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes antRotate {
+  to {
+    transform: rotate(405deg);
+  }
+}
